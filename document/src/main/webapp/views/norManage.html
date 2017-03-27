@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../styles/manage.css">
+    <link rel="stylesheet" href="../styles/pagination.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+<header>
+  <span>文档管理个人中心</span>
+  <a href="../index.html">退出</a>
+  <a href="changePwd.html">修改密码</a>
+</header>
+<div class="wrap">
+  <div class="row">
+    <aside class="col-md-3 col-md-offset-1">
+      <ul class="nav nav-pills">
+      <li class="active"><a id="upload" href="#">点击上传</a></li>
+      <li><a id="download" href="#">最新文件</a></li>
+      <li><a id="recent" href="#">我的下载</a></li>
+      </ul>
+      <div class="recently"></div>
+      <div class="contribution"></div>
+   </aside>
+     <section class="col-md-7">
+      <div class="manage">
+        <ul class="nav navbar-nav" id="btn_manage">
+          <li><a  href="#" data-toggle="modal" data-target="#myModal">上传</a></li>
+          <li><a id="btn_download" href="#">下载</a></li>
+          <li><a id="btn_edit" href="#">编辑</a></li>
+          <li><a id="btn_delete" href="#">删除</a></li>
+        </ul>
+        <div class="seo">
+          <input type="text" name="" value="">
+          <button class="btn btn-primary" type="button" name="button">点击搜索</button>
+        </div>
+      </div>
+      <div class="pagination-container">
+        <table class="table table-bordered msgtable">
+          <thead>
+            <tr>
+              <td></td>
+              <td>名称</td>
+              <td>文档类型</td>
+              <td>描述</td>
+              <td>存储路径</td>
+            </tr>
+          </thead>
+          <tbody id="msgtable">
+
+          </tbody>
+
+        </table>
+      </div>
+      <div class="hidden" id="hidden-table"></div>
+
+      <nav id="Pagination" class="pagination"></nav>
+    </section>
+  </div>
+</div>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">上传文件</h4>
+            </div>
+            <div class="modal-body">
+                <input multiple="multiple" type="file" name="file" id="file"><br/>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-info" id="btn_upload">点击上传</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="../scripts/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/tether/1.4.0/js/tether.min.js"></script>
+<script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="../scripts/manage.js"></script>
+<script src="../scripts/jquery.pagination.js"></script>
+</body>
+</html>

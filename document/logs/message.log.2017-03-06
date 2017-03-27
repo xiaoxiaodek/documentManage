@@ -1,0 +1,544 @@
+[MSG] 03-06 08:45:02 931 [INFO]-[main] org.springframework.web.context.ContextLoader.initWebApplicationContext(273) | Root WebApplicationContext: initialization started
+[MSG] 03-06 08:45:02 954 [INFO]-[main] org.springframework.context.support.AbstractApplicationContext.prepareRefresh(510) | Refreshing Root WebApplicationContext: startup date [Mon Mar 06 08:45:02 CST 2017]; root of context hierarchy
+[MSG] 03-06 08:45:03 004 [INFO]-[main] org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(315) | Loading XML bean definitions from ServletContext resource [/WEB-INF/applicationContext.xml]
+[MSG] 03-06 08:45:03 167 [INFO]-[main] org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider.registerDefaultFilters(222) | JSR-250 'javax.annotation.ManagedBean' found and supported for component scanning
+[MSG] 03-06 08:45:03 168 [INFO]-[main] org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider.registerDefaultFilters(230) | JSR-330 'javax.inject.Named' annotation found and supported for component scanning
+[MSG] 03-06 08:45:03 176 [INFO]-[main] org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(315) | Loading XML bean definitions from class path resource [config/jpa.xml]
+[MSG] 03-06 08:45:03 218 [INFO]-[main] org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(315) | Loading XML bean definitions from class path resource [spring-amqp.xml]
+[MSG] 03-06 08:45:03 220 [ERROR]-[main] org.springframework.web.context.ContextLoader.initWebApplicationContext(319) | Context initialization failed
+org.springframework.beans.factory.parsing.BeanDefinitionParsingException: Configuration problem: Failed to import bean definitions from URL location [classpath:spring-amqp.xml]
+Offending resource: ServletContext resource [/WEB-INF/applicationContext.xml]; nested exception is org.springframework.beans.factory.BeanDefinitionStoreException: IOException parsing XML document from class path resource [spring-amqp.xml]; nested exception is java.io.FileNotFoundException: class path resource [spring-amqp.xml] cannot be opened because it does not exist
+	at org.springframework.beans.factory.parsing.FailFastProblemReporter.error(FailFastProblemReporter.java:68)
+	at org.springframework.beans.factory.parsing.ReaderContext.error(ReaderContext.java:85)
+	at org.springframework.beans.factory.parsing.ReaderContext.error(ReaderContext.java:76)
+	at org.springframework.beans.factory.xml.DefaultBeanDefinitionDocumentReader.importBeanDefinitionResource(DefaultBeanDefinitionDocumentReader.java:246)
+	at org.springframework.beans.factory.xml.DefaultBeanDefinitionDocumentReader.parseDefaultElement(DefaultBeanDefinitionDocumentReader.java:197)
+	at org.springframework.beans.factory.xml.DefaultBeanDefinitionDocumentReader.parseBeanDefinitions(DefaultBeanDefinitionDocumentReader.java:182)
+	at org.springframework.beans.factory.xml.DefaultBeanDefinitionDocumentReader.doRegisterBeanDefinitions(DefaultBeanDefinitionDocumentReader.java:139)
+	at org.springframework.beans.factory.xml.DefaultBeanDefinitionDocumentReader.registerBeanDefinitions(DefaultBeanDefinitionDocumentReader.java:108)
+	at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.registerBeanDefinitions(XmlBeanDefinitionReader.java:493)
+	at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.doLoadBeanDefinitions(XmlBeanDefinitionReader.java:390)
+	at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:334)
+	at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(AbstractBeanDefinitionReader.java:174)
+	at org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(AbstractBeanDefinitionReader.java:209)
+	at org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(AbstractBeanDefinitionReader.java:180)
+	at org.springframework.web.context.support.XmlWebApplicationContext.loadBeanDefinitions(XmlWebApplicationContext.java:125)
+	at org.springframework.web.context.support.XmlWebApplicationContext.loadBeanDefinitions(XmlWebApplicationContext.java:94)
+	at org.springframework.context.support.AbstractRefreshableApplicationContext.refreshBeanFactory(AbstractRefreshableApplicationContext.java:130)
+	at org.springframework.context.support.AbstractApplicationContext.obtainFreshBeanFactory(AbstractApplicationContext.java:537)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:451)
+	at org.springframework.web.context.ContextLoader.configureAndRefreshWebApplicationContext(ContextLoader.java:389)
+	at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:294)
+	at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:112)
+	at org.eclipse.jetty.server.handler.ContextHandler.callContextInitialized(ContextHandler.java:775)
+	at org.eclipse.jetty.servlet.ServletContextHandler.callContextInitialized(ServletContextHandler.java:424)
+	at org.eclipse.jetty.server.handler.ContextHandler.startContext(ContextHandler.java:767)
+	at org.eclipse.jetty.servlet.ServletContextHandler.startContext(ServletContextHandler.java:249)
+	at org.eclipse.jetty.webapp.WebAppContext.startContext(WebAppContext.java:1250)
+	at org.eclipse.jetty.server.handler.ContextHandler.doStart(ContextHandler.java:710)
+	at org.eclipse.jetty.webapp.WebAppContext.doStart(WebAppContext.java:492)
+	at org.mortbay.jetty.plugin.JettyWebAppContext.doStart(JettyWebAppContext.java:293)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at org.eclipse.jetty.server.handler.HandlerCollection.doStart(HandlerCollection.java:229)
+	at org.eclipse.jetty.server.handler.ContextHandlerCollection.doStart(ContextHandlerCollection.java:172)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at org.eclipse.jetty.server.handler.HandlerCollection.doStart(HandlerCollection.java:229)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.doStart(HandlerWrapper.java:95)
+	at org.eclipse.jetty.server.Server.doStart(Server.java:280)
+	at org.mortbay.jetty.plugin.JettyServer.doStart(JettyServer.java:65)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at org.mortbay.jetty.plugin.AbstractJettyMojo.startJetty(AbstractJettyMojo.java:520)
+	at org.mortbay.jetty.plugin.AbstractJettyMojo.execute(AbstractJettyMojo.java:365)
+	at org.mortbay.jetty.plugin.JettyRunMojo.execute(JettyRunMojo.java:523)
+	at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(DefaultBuildPluginManager.java:134)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:207)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:153)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:145)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:116)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:80)
+	at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build(SingleThreadedBuilder.java:51)
+	at org.apache.maven.lifecycle.internal.LifecycleStarter.execute(LifecycleStarter.java:128)
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:307)
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:193)
+	at org.apache.maven.DefaultMaven.execute(DefaultMaven.java:106)
+	at org.apache.maven.cli.MavenCli.execute(MavenCli.java:863)
+	at org.apache.maven.cli.MavenCli.doMain(MavenCli.java:288)
+	at org.apache.maven.cli.MavenCli.main(MavenCli.java:199)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced(Launcher.java:289)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launch(Launcher.java:229)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode(Launcher.java:415)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:356)
+	at org.codehaus.classworlds.Launcher.main(Launcher.java:47)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:147)
+Caused by: org.springframework.beans.factory.BeanDefinitionStoreException: IOException parsing XML document from class path resource [spring-amqp.xml]; nested exception is java.io.FileNotFoundException: class path resource [spring-amqp.xml] cannot be opened because it does not exist
+	at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:341)
+	at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(AbstractBeanDefinitionReader.java:174)
+	at org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(AbstractBeanDefinitionReader.java:209)
+	at org.springframework.beans.factory.xml.DefaultBeanDefinitionDocumentReader.importBeanDefinitionResource(DefaultBeanDefinitionDocumentReader.java:240)
+	... 68 more
+Caused by: java.io.FileNotFoundException: class path resource [spring-amqp.xml] cannot be opened because it does not exist
+	at org.springframework.core.io.ClassPathResource.getInputStream(ClassPathResource.java:157)
+	at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:328)
+	... 72 more
+[MSG] 03-06 08:48:17 342 [INFO]-[main] org.springframework.web.context.ContextLoader.initWebApplicationContext(273) | Root WebApplicationContext: initialization started
+[MSG] 03-06 08:48:17 363 [INFO]-[main] org.springframework.context.support.AbstractApplicationContext.prepareRefresh(510) | Refreshing Root WebApplicationContext: startup date [Mon Mar 06 08:48:17 CST 2017]; root of context hierarchy
+[MSG] 03-06 08:48:17 409 [INFO]-[main] org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(315) | Loading XML bean definitions from ServletContext resource [/WEB-INF/applicationContext.xml]
+[MSG] 03-06 08:48:17 485 [INFO]-[main] org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider.registerDefaultFilters(222) | JSR-250 'javax.annotation.ManagedBean' found and supported for component scanning
+[MSG] 03-06 08:48:17 485 [INFO]-[main] org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider.registerDefaultFilters(230) | JSR-330 'javax.inject.Named' annotation found and supported for component scanning
+[MSG] 03-06 08:48:17 494 [INFO]-[main] org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(315) | Loading XML bean definitions from class path resource [config/jpa.xml]
+[MSG] 03-06 08:48:17 646 [INFO]-[main] org.springframework.core.io.support.PropertiesLoaderSupport.loadProperties(172) | Loading properties file from class path resource [properties/dev.properties]
+[MSG] 03-06 08:48:17 651 [INFO]-[main] org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.<init>(140) | JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[MSG] 03-06 08:48:17 746 [INFO]-[main] org.springframework.context.support.AbstractApplicationContext$BeanPostProcessorChecker.postProcessAfterInitialization(1374) | Bean 'dataSource' of type [class org.apache.commons.dbcp.BasicDataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[MSG] 03-06 08:48:17 754 [INFO]-[main] org.springframework.context.support.AbstractApplicationContext$BeanPostProcessorChecker.postProcessAfterInitialization(1374) | Bean 'org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter#bce20ef' of type [class org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[MSG] 03-06 08:48:17 764 [INFO]-[main] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(285) | Building JPA container EntityManagerFactory for persistence unit 'default'
+[MSG] 03-06 08:48:17 843 [INFO]-[main] org.hibernate.annotations.common.Version.<clinit>(37) | HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+[MSG] 03-06 08:48:17 847 [INFO]-[main] org.hibernate.Version.logVersion(41) | HHH000412: Hibernate Core {4.1.7.Final}
+[MSG] 03-06 08:48:17 849 [INFO]-[main] org.hibernate.cfg.Environment.<clinit>(239) | HHH000206: hibernate.properties not found
+[MSG] 03-06 08:48:17 850 [INFO]-[main] org.hibernate.cfg.Environment.buildBytecodeProvider(342) | HHH000021: Bytecode provider name : javassist
+[MSG] 03-06 08:48:17 863 [INFO]-[main] org.hibernate.ejb.Ejb3Configuration.configure(527) | HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+[MSG] 03-06 08:48:18 134 [INFO]-[main] org.hibernate.service.jdbc.connections.internal.ConnectionProviderInitiator.instantiateExplicitConnectionProvider(188) | HHH000130: Instantiating explicit connection provider: org.hibernate.ejb.connection.InjectedDataSourceConnectionProvider
+[MSG] 03-06 08:48:18 641 [WARN]-[main] org.hibernate.engine.jdbc.internal.JdbcServicesImpl.configure(169) | HHH000342: Could not obtain connection to query metadata : Cannot create PoolableConnectionFactory (Unknown database 'message')
+[MSG] 03-06 08:48:18 645 [INFO]-[main] org.hibernate.dialect.Dialect.<init>(125) | HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+[MSG] 03-06 08:48:18 650 [INFO]-[main] org.hibernate.engine.jdbc.internal.LobCreatorBuilder.useContextualLobCreation(85) | HHH000422: Disabling contextual LOB creation as connection was null
+[MSG] 03-06 08:48:18 656 [INFO]-[main] org.hibernate.engine.transaction.internal.TransactionFactoryInitiator.initiateService(73) | HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+[MSG] 03-06 08:48:18 659 [INFO]-[main] org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory.<init>(48) | HHH000397: Using ASTQueryTranslatorFactory
+[MSG] 03-06 08:48:18 708 [INFO]-[main] org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(182) | HHH000228: Running hbm2ddl schema update
+[MSG] 03-06 08:48:18 709 [INFO]-[main] org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(193) | HHH000102: Fetching database metadata
+[MSG] 03-06 08:48:18 711 [ERROR]-[main] org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(201) | HHH000319: Could not get database metadata
+org.apache.commons.dbcp.SQLNestedException: Cannot create PoolableConnectionFactory (Unknown database 'message')
+	at org.apache.commons.dbcp.BasicDataSource.createPoolableConnectionFactory(BasicDataSource.java:1549)
+	at org.apache.commons.dbcp.BasicDataSource.createDataSource(BasicDataSource.java:1388)
+	at org.apache.commons.dbcp.BasicDataSource.getConnection(BasicDataSource.java:1044)
+	at org.hibernate.ejb.connection.InjectedDataSourceConnectionProvider.getConnection(InjectedDataSourceConnectionProvider.java:70)
+	at org.hibernate.tool.hbm2ddl.SuppliedConnectionProviderConnectionHelper.prepare(SuppliedConnectionProviderConnectionHelper.java:51)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:194)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:178)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:492)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:1750)
+	at org.hibernate.ejb.EntityManagerFactoryImpl.<init>(EntityManagerFactoryImpl.java:94)
+	at org.hibernate.ejb.Ejb3Configuration.buildEntityManagerFactory(Ejb3Configuration.java:905)
+	at org.hibernate.ejb.Ejb3Configuration.buildEntityManagerFactory(Ejb3Configuration.java:890)
+	at org.hibernate.ejb.HibernatePersistence.createContainerEntityManagerFactory(HibernatePersistence.java:74)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:288)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:310)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1547)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1485)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:524)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:461)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:295)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:223)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:292)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:198)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeansOfType(DefaultListableBeanFactory.java:439)
+	at org.springframework.beans.factory.BeanFactoryUtils.beansOfTypeIncludingAncestors(BeanFactoryUtils.java:277)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.detectPersistenceExceptionTranslators(PersistenceExceptionTranslationInterceptor.java:139)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.<init>(PersistenceExceptionTranslationInterceptor.java:79)
+	at org.springframework.dao.annotation.PersistenceExceptionTranslationAdvisor.<init>(PersistenceExceptionTranslationAdvisor.java:71)
+	at org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor.setBeanFactory(PersistenceExceptionTranslationPostProcessor.java:85)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeAwareMethods(AbstractAutowireCapableBeanFactory.java:1508)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1476)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:524)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:461)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:295)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:223)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:292)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:198)
+	at org.springframework.context.support.AbstractApplicationContext.registerBeanPostProcessors(AbstractApplicationContext.java:741)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:464)
+	at org.springframework.web.context.ContextLoader.configureAndRefreshWebApplicationContext(ContextLoader.java:389)
+	at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:294)
+	at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:112)
+	at org.eclipse.jetty.server.handler.ContextHandler.callContextInitialized(ContextHandler.java:775)
+	at org.eclipse.jetty.servlet.ServletContextHandler.callContextInitialized(ServletContextHandler.java:424)
+	at org.eclipse.jetty.server.handler.ContextHandler.startContext(ContextHandler.java:767)
+	at org.eclipse.jetty.servlet.ServletContextHandler.startContext(ServletContextHandler.java:249)
+	at org.eclipse.jetty.webapp.WebAppContext.startContext(WebAppContext.java:1250)
+	at org.eclipse.jetty.server.handler.ContextHandler.doStart(ContextHandler.java:710)
+	at org.eclipse.jetty.webapp.WebAppContext.doStart(WebAppContext.java:492)
+	at org.mortbay.jetty.plugin.JettyWebAppContext.doStart(JettyWebAppContext.java:293)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at org.eclipse.jetty.server.handler.HandlerCollection.doStart(HandlerCollection.java:229)
+	at org.eclipse.jetty.server.handler.ContextHandlerCollection.doStart(ContextHandlerCollection.java:172)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at org.eclipse.jetty.server.handler.HandlerCollection.doStart(HandlerCollection.java:229)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.doStart(HandlerWrapper.java:95)
+	at org.eclipse.jetty.server.Server.doStart(Server.java:280)
+	at org.mortbay.jetty.plugin.JettyServer.doStart(JettyServer.java:65)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at org.mortbay.jetty.plugin.AbstractJettyMojo.startJetty(AbstractJettyMojo.java:520)
+	at org.mortbay.jetty.plugin.AbstractJettyMojo.execute(AbstractJettyMojo.java:365)
+	at org.mortbay.jetty.plugin.JettyRunMojo.execute(JettyRunMojo.java:523)
+	at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(DefaultBuildPluginManager.java:134)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:207)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:153)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:145)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:116)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:80)
+	at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build(SingleThreadedBuilder.java:51)
+	at org.apache.maven.lifecycle.internal.LifecycleStarter.execute(LifecycleStarter.java:128)
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:307)
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:193)
+	at org.apache.maven.DefaultMaven.execute(DefaultMaven.java:106)
+	at org.apache.maven.cli.MavenCli.execute(MavenCli.java:863)
+	at org.apache.maven.cli.MavenCli.doMain(MavenCli.java:288)
+	at org.apache.maven.cli.MavenCli.main(MavenCli.java:199)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced(Launcher.java:289)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launch(Launcher.java:229)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode(Launcher.java:415)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:356)
+	at org.codehaus.classworlds.Launcher.main(Launcher.java:47)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:147)
+Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown database 'message'
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:57)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:526)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:411)
+	at com.mysql.jdbc.Util.getInstance(Util.java:386)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1053)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:4074)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:4006)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:919)
+	at com.mysql.jdbc.MysqlIO.proceedHandshakeWithPluggableAuthentication(MysqlIO.java:1694)
+	at com.mysql.jdbc.MysqlIO.doHandshake(MysqlIO.java:1244)
+	at com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2397)
+	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2430)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2215)
+	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:813)
+	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:47)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:57)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:526)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:411)
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:399)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:334)
+	at org.apache.commons.dbcp.DriverConnectionFactory.createConnection(DriverConnectionFactory.java:38)
+	at org.apache.commons.dbcp.PoolableConnectionFactory.makeObject(PoolableConnectionFactory.java:582)
+	at org.apache.commons.dbcp.BasicDataSource.validateConnectionFactory(BasicDataSource.java:1556)
+	at org.apache.commons.dbcp.BasicDataSource.createPoolableConnectionFactory(BasicDataSource.java:1545)
+	... 90 more
+[MSG] 03-06 08:48:18 713 [ERROR]-[main] org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(245) | HHH000299: Could not complete schema update
+org.apache.commons.dbcp.SQLNestedException: Cannot create PoolableConnectionFactory (Unknown database 'message')
+	at org.apache.commons.dbcp.BasicDataSource.createPoolableConnectionFactory(BasicDataSource.java:1549)
+	at org.apache.commons.dbcp.BasicDataSource.createDataSource(BasicDataSource.java:1388)
+	at org.apache.commons.dbcp.BasicDataSource.getConnection(BasicDataSource.java:1044)
+	at org.hibernate.ejb.connection.InjectedDataSourceConnectionProvider.getConnection(InjectedDataSourceConnectionProvider.java:70)
+	at org.hibernate.tool.hbm2ddl.SuppliedConnectionProviderConnectionHelper.prepare(SuppliedConnectionProviderConnectionHelper.java:51)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:194)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:178)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:492)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:1750)
+	at org.hibernate.ejb.EntityManagerFactoryImpl.<init>(EntityManagerFactoryImpl.java:94)
+	at org.hibernate.ejb.Ejb3Configuration.buildEntityManagerFactory(Ejb3Configuration.java:905)
+	at org.hibernate.ejb.Ejb3Configuration.buildEntityManagerFactory(Ejb3Configuration.java:890)
+	at org.hibernate.ejb.HibernatePersistence.createContainerEntityManagerFactory(HibernatePersistence.java:74)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:288)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:310)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1547)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1485)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:524)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:461)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:295)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:223)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:292)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:198)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeansOfType(DefaultListableBeanFactory.java:439)
+	at org.springframework.beans.factory.BeanFactoryUtils.beansOfTypeIncludingAncestors(BeanFactoryUtils.java:277)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.detectPersistenceExceptionTranslators(PersistenceExceptionTranslationInterceptor.java:139)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.<init>(PersistenceExceptionTranslationInterceptor.java:79)
+	at org.springframework.dao.annotation.PersistenceExceptionTranslationAdvisor.<init>(PersistenceExceptionTranslationAdvisor.java:71)
+	at org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor.setBeanFactory(PersistenceExceptionTranslationPostProcessor.java:85)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeAwareMethods(AbstractAutowireCapableBeanFactory.java:1508)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1476)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:524)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:461)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:295)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:223)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:292)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:198)
+	at org.springframework.context.support.AbstractApplicationContext.registerBeanPostProcessors(AbstractApplicationContext.java:741)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:464)
+	at org.springframework.web.context.ContextLoader.configureAndRefreshWebApplicationContext(ContextLoader.java:389)
+	at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:294)
+	at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:112)
+	at org.eclipse.jetty.server.handler.ContextHandler.callContextInitialized(ContextHandler.java:775)
+	at org.eclipse.jetty.servlet.ServletContextHandler.callContextInitialized(ServletContextHandler.java:424)
+	at org.eclipse.jetty.server.handler.ContextHandler.startContext(ContextHandler.java:767)
+	at org.eclipse.jetty.servlet.ServletContextHandler.startContext(ServletContextHandler.java:249)
+	at org.eclipse.jetty.webapp.WebAppContext.startContext(WebAppContext.java:1250)
+	at org.eclipse.jetty.server.handler.ContextHandler.doStart(ContextHandler.java:710)
+	at org.eclipse.jetty.webapp.WebAppContext.doStart(WebAppContext.java:492)
+	at org.mortbay.jetty.plugin.JettyWebAppContext.doStart(JettyWebAppContext.java:293)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at org.eclipse.jetty.server.handler.HandlerCollection.doStart(HandlerCollection.java:229)
+	at org.eclipse.jetty.server.handler.ContextHandlerCollection.doStart(ContextHandlerCollection.java:172)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at org.eclipse.jetty.server.handler.HandlerCollection.doStart(HandlerCollection.java:229)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.doStart(HandlerWrapper.java:95)
+	at org.eclipse.jetty.server.Server.doStart(Server.java:280)
+	at org.mortbay.jetty.plugin.JettyServer.doStart(JettyServer.java:65)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at org.mortbay.jetty.plugin.AbstractJettyMojo.startJetty(AbstractJettyMojo.java:520)
+	at org.mortbay.jetty.plugin.AbstractJettyMojo.execute(AbstractJettyMojo.java:365)
+	at org.mortbay.jetty.plugin.JettyRunMojo.execute(JettyRunMojo.java:523)
+	at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(DefaultBuildPluginManager.java:134)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:207)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:153)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:145)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:116)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:80)
+	at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build(SingleThreadedBuilder.java:51)
+	at org.apache.maven.lifecycle.internal.LifecycleStarter.execute(LifecycleStarter.java:128)
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:307)
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:193)
+	at org.apache.maven.DefaultMaven.execute(DefaultMaven.java:106)
+	at org.apache.maven.cli.MavenCli.execute(MavenCli.java:863)
+	at org.apache.maven.cli.MavenCli.doMain(MavenCli.java:288)
+	at org.apache.maven.cli.MavenCli.main(MavenCli.java:199)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced(Launcher.java:289)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launch(Launcher.java:229)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode(Launcher.java:415)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:356)
+	at org.codehaus.classworlds.Launcher.main(Launcher.java:47)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:147)
+Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown database 'message'
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:57)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:526)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:411)
+	at com.mysql.jdbc.Util.getInstance(Util.java:386)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1053)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:4074)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:4006)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:919)
+	at com.mysql.jdbc.MysqlIO.proceedHandshakeWithPluggableAuthentication(MysqlIO.java:1694)
+	at com.mysql.jdbc.MysqlIO.doHandshake(MysqlIO.java:1244)
+	at com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2397)
+	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2430)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2215)
+	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:813)
+	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:47)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:57)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:526)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:411)
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:399)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:334)
+	at org.apache.commons.dbcp.DriverConnectionFactory.createConnection(DriverConnectionFactory.java:38)
+	at org.apache.commons.dbcp.PoolableConnectionFactory.makeObject(PoolableConnectionFactory.java:582)
+	at org.apache.commons.dbcp.BasicDataSource.validateConnectionFactory(BasicDataSource.java:1556)
+	at org.apache.commons.dbcp.BasicDataSource.createPoolableConnectionFactory(BasicDataSource.java:1545)
+	... 90 more
+[MSG] 03-06 08:48:18 737 [INFO]-[main] org.springframework.context.support.AbstractApplicationContext$BeanPostProcessorChecker.postProcessAfterInitialization(1374) | Bean 'entityManagerFactory' of type [class org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[MSG] 03-06 08:48:18 751 [INFO]-[main] org.springframework.context.support.AbstractApplicationContext$BeanPostProcessorChecker.postProcessAfterInitialization(1374) | Bean 'org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0' of type [class org.springframework.transaction.annotation.AnnotationTransactionAttributeSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[MSG] 03-06 08:48:18 753 [INFO]-[main] org.springframework.context.support.AbstractApplicationContext$BeanPostProcessorChecker.postProcessAfterInitialization(1374) | Bean 'org.springframework.transaction.config.internalTransactionAdvisor' of type [class org.springframework.transaction.interceptor.BeanFactoryTransactionAttributeSourceAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[MSG] 03-06 08:48:18 763 [INFO]-[main] org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(596) | Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@c335020: defining beans [org.springframework.context.support.PropertySourcesPlaceholderConfigurer#0,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.internalPersistenceAnnotationProcessor,org.springframework.aop.config.internalAutoProxyCreator,sessionFactory,dataSource,entityManagerFactory,transactionManager,org.springframework.data.repository.core.support.RepositoryInterfaceAwareBeanPostProcessor#0,org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor#0,org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0,org.springframework.transaction.interceptor.TransactionInterceptor#0,org.springframework.transaction.config.internalTransactionAdvisor,viewResolver,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor]; root of factory hierarchy
+[MSG] 03-06 08:48:18 834 [INFO]-[main] org.springframework.web.context.ContextLoader.initWebApplicationContext(313) | Root WebApplicationContext: initialization completed in 1490 ms
+[MSG] 03-06 08:48:18 975 [INFO]-[main] org.springframework.web.servlet.FrameworkServlet.initServletBean(454) | FrameworkServlet 'appServlet': initialization started
+[MSG] 03-06 08:48:18 977 [INFO]-[main] org.springframework.context.support.AbstractApplicationContext.prepareRefresh(510) | Refreshing WebApplicationContext for namespace 'appServlet-servlet': startup date [Mon Mar 06 08:48:18 CST 2017]; parent: Root WebApplicationContext
+[MSG] 03-06 08:48:18 978 [INFO]-[main] org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(315) | Loading XML bean definitions from ServletContext resource [/WEB-INF/servletContext.xml]
+[MSG] 03-06 08:48:19 009 [INFO]-[main] org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider.registerDefaultFilters(222) | JSR-250 'javax.annotation.ManagedBean' found and supported for component scanning
+[MSG] 03-06 08:48:19 009 [INFO]-[main] org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider.registerDefaultFilters(230) | JSR-330 'javax.inject.Named' annotation found and supported for component scanning
+[MSG] 03-06 08:48:19 063 [INFO]-[main] org.springframework.core.io.support.PropertiesLoaderSupport.loadProperties(172) | Loading properties file from class path resource [properties/dev.properties]
+[MSG] 03-06 08:48:19 066 [INFO]-[main] org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.<init>(140) | JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[MSG] 03-06 08:48:19 070 [INFO]-[main] org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(596) | Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@3f4d5900: defining beans [org.springframework.context.support.PropertySourcesPlaceholderConfigurer#0,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.internalPersistenceAnnotationProcessor,org.springframework.aop.config.internalAutoProxyCreator,org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler#0,org.springframework.web.servlet.handler.SimpleUrlHandlerMapping#0,org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping,org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter,org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter,mvcContentNegotiationManager,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0,org.springframework.format.support.FormattingConversionServiceFactoryBean#0,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0,org.springframework.web.servlet.handler.MappedInterceptor#0,org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver#0,org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver#0,org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver#0,org.springframework.web.servlet.view.InternalResourceViewResolver#0,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor]; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@c335020
+[MSG] 03-06 08:48:19 105 [INFO]-[main] org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler(315) | Mapped URL path [/**] onto handler 'org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler#0'
+[MSG] 03-06 08:48:19 633 [INFO]-[main] org.springframework.web.servlet.FrameworkServlet.initServletBean(473) | FrameworkServlet 'appServlet': initialization completed in 658 ms
+[MSG] 03-06 08:49:34 687 [INFO]-[main] org.springframework.web.context.ContextLoader.initWebApplicationContext(273) | Root WebApplicationContext: initialization started
+[MSG] 03-06 08:49:34 706 [INFO]-[main] org.springframework.context.support.AbstractApplicationContext.prepareRefresh(510) | Refreshing Root WebApplicationContext: startup date [Mon Mar 06 08:49:34 CST 2017]; root of context hierarchy
+[MSG] 03-06 08:49:34 749 [INFO]-[main] org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(315) | Loading XML bean definitions from ServletContext resource [/WEB-INF/applicationContext.xml]
+[MSG] 03-06 08:49:34 822 [INFO]-[main] org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider.registerDefaultFilters(222) | JSR-250 'javax.annotation.ManagedBean' found and supported for component scanning
+[MSG] 03-06 08:49:34 822 [INFO]-[main] org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider.registerDefaultFilters(230) | JSR-330 'javax.inject.Named' annotation found and supported for component scanning
+[MSG] 03-06 08:49:34 830 [INFO]-[main] org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(315) | Loading XML bean definitions from class path resource [config/jpa.xml]
+[MSG] 03-06 08:49:34 937 [INFO]-[main] org.springframework.core.io.support.PropertiesLoaderSupport.loadProperties(172) | Loading properties file from class path resource [properties/dev.properties]
+[MSG] 03-06 08:49:34 942 [INFO]-[main] org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.<init>(140) | JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[MSG] 03-06 08:49:35 006 [INFO]-[main] org.springframework.context.support.AbstractApplicationContext$BeanPostProcessorChecker.postProcessAfterInitialization(1374) | Bean 'dataSource' of type [class org.apache.commons.dbcp.BasicDataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[MSG] 03-06 08:49:35 013 [INFO]-[main] org.springframework.context.support.AbstractApplicationContext$BeanPostProcessorChecker.postProcessAfterInitialization(1374) | Bean 'org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter#3e06b5c' of type [class org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[MSG] 03-06 08:49:35 022 [INFO]-[main] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(285) | Building JPA container EntityManagerFactory for persistence unit 'default'
+[MSG] 03-06 08:49:35 088 [INFO]-[main] org.hibernate.annotations.common.Version.<clinit>(37) | HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+[MSG] 03-06 08:49:35 092 [INFO]-[main] org.hibernate.Version.logVersion(41) | HHH000412: Hibernate Core {4.1.7.Final}
+[MSG] 03-06 08:49:35 093 [INFO]-[main] org.hibernate.cfg.Environment.<clinit>(239) | HHH000206: hibernate.properties not found
+[MSG] 03-06 08:49:35 094 [INFO]-[main] org.hibernate.cfg.Environment.buildBytecodeProvider(342) | HHH000021: Bytecode provider name : javassist
+[MSG] 03-06 08:49:35 106 [INFO]-[main] org.hibernate.ejb.Ejb3Configuration.configure(527) | HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+[MSG] 03-06 08:49:35 205 [INFO]-[main] org.hibernate.service.jdbc.connections.internal.ConnectionProviderInitiator.instantiateExplicitConnectionProvider(188) | HHH000130: Instantiating explicit connection provider: org.hibernate.ejb.connection.InjectedDataSourceConnectionProvider
+[MSG] 03-06 08:49:35 385 [INFO]-[main] org.hibernate.dialect.Dialect.<init>(125) | HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+[MSG] 03-06 08:49:35 398 [INFO]-[main] org.hibernate.engine.transaction.internal.TransactionFactoryInitiator.initiateService(73) | HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+[MSG] 03-06 08:49:35 400 [INFO]-[main] org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory.<init>(48) | HHH000397: Using ASTQueryTranslatorFactory
+[MSG] 03-06 08:49:35 454 [INFO]-[main] org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(182) | HHH000228: Running hbm2ddl schema update
+[MSG] 03-06 08:49:35 454 [INFO]-[main] org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(193) | HHH000102: Fetching database metadata
+[MSG] 03-06 08:49:35 456 [INFO]-[main] org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(205) | HHH000396: Updating schema
+[MSG] 03-06 08:49:35 457 [INFO]-[main] org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(240) | HHH000232: Schema update complete
+[MSG] 03-06 08:49:35 478 [INFO]-[main] org.springframework.context.support.AbstractApplicationContext$BeanPostProcessorChecker.postProcessAfterInitialization(1374) | Bean 'entityManagerFactory' of type [class org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[MSG] 03-06 08:49:35 491 [INFO]-[main] org.springframework.context.support.AbstractApplicationContext$BeanPostProcessorChecker.postProcessAfterInitialization(1374) | Bean 'org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0' of type [class org.springframework.transaction.annotation.AnnotationTransactionAttributeSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[MSG] 03-06 08:49:35 493 [INFO]-[main] org.springframework.context.support.AbstractApplicationContext$BeanPostProcessorChecker.postProcessAfterInitialization(1374) | Bean 'org.springframework.transaction.config.internalTransactionAdvisor' of type [class org.springframework.transaction.interceptor.BeanFactoryTransactionAttributeSourceAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[MSG] 03-06 08:49:35 502 [INFO]-[main] org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(596) | Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@73cd8020: defining beans [org.springframework.context.support.PropertySourcesPlaceholderConfigurer#0,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.internalPersistenceAnnotationProcessor,org.springframework.aop.config.internalAutoProxyCreator,sessionFactory,dataSource,entityManagerFactory,transactionManager,org.springframework.data.repository.core.support.RepositoryInterfaceAwareBeanPostProcessor#0,org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor#0,org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0,org.springframework.transaction.interceptor.TransactionInterceptor#0,org.springframework.transaction.config.internalTransactionAdvisor,viewResolver,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor]; root of factory hierarchy
+[MSG] 03-06 08:49:35 548 [INFO]-[main] org.springframework.web.context.ContextLoader.initWebApplicationContext(313) | Root WebApplicationContext: initialization completed in 859 ms
+[MSG] 03-06 08:49:35 594 [INFO]-[main] org.springframework.web.servlet.FrameworkServlet.initServletBean(454) | FrameworkServlet 'appServlet': initialization started
+[MSG] 03-06 08:49:35 596 [INFO]-[main] org.springframework.context.support.AbstractApplicationContext.prepareRefresh(510) | Refreshing WebApplicationContext for namespace 'appServlet-servlet': startup date [Mon Mar 06 08:49:35 CST 2017]; parent: Root WebApplicationContext
+[MSG] 03-06 08:49:35 597 [INFO]-[main] org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(315) | Loading XML bean definitions from ServletContext resource [/WEB-INF/servletContext.xml]
+[MSG] 03-06 08:49:35 627 [INFO]-[main] org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider.registerDefaultFilters(222) | JSR-250 'javax.annotation.ManagedBean' found and supported for component scanning
+[MSG] 03-06 08:49:35 628 [INFO]-[main] org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider.registerDefaultFilters(230) | JSR-330 'javax.inject.Named' annotation found and supported for component scanning
+[MSG] 03-06 08:49:35 665 [INFO]-[main] org.springframework.core.io.support.PropertiesLoaderSupport.loadProperties(172) | Loading properties file from class path resource [properties/dev.properties]
+[MSG] 03-06 08:49:35 667 [INFO]-[main] org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.<init>(140) | JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[MSG] 03-06 08:49:35 672 [INFO]-[main] org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(596) | Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@3e486f78: defining beans [org.springframework.context.support.PropertySourcesPlaceholderConfigurer#0,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.internalPersistenceAnnotationProcessor,org.springframework.aop.config.internalAutoProxyCreator,org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler#0,org.springframework.web.servlet.handler.SimpleUrlHandlerMapping#0,org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping,org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter,org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter,mvcContentNegotiationManager,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0,org.springframework.format.support.FormattingConversionServiceFactoryBean#0,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0,org.springframework.web.servlet.handler.MappedInterceptor#0,org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver#0,org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver#0,org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver#0,org.springframework.web.servlet.view.InternalResourceViewResolver#0,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor]; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@73cd8020
+[MSG] 03-06 08:49:35 707 [INFO]-[main] org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler(315) | Mapped URL path [/**] onto handler 'org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler#0'
+[MSG] 03-06 08:49:35 994 [INFO]-[main] org.springframework.web.servlet.FrameworkServlet.initServletBean(473) | FrameworkServlet 'appServlet': initialization completed in 400 ms
+[MSG] 03-06 08:51:11 639 [INFO]-[main] org.springframework.web.context.ContextLoader.initWebApplicationContext(273) | Root WebApplicationContext: initialization started
+[MSG] 03-06 08:51:11 659 [INFO]-[main] org.springframework.context.support.AbstractApplicationContext.prepareRefresh(510) | Refreshing Root WebApplicationContext: startup date [Mon Mar 06 08:51:11 CST 2017]; root of context hierarchy
+[MSG] 03-06 08:51:11 703 [INFO]-[main] org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(315) | Loading XML bean definitions from ServletContext resource [/WEB-INF/applicationContext.xml]
+[MSG] 03-06 08:51:11 783 [INFO]-[main] org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider.registerDefaultFilters(222) | JSR-250 'javax.annotation.ManagedBean' found and supported for component scanning
+[MSG] 03-06 08:51:11 783 [INFO]-[main] org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider.registerDefaultFilters(230) | JSR-330 'javax.inject.Named' annotation found and supported for component scanning
+[MSG] 03-06 08:51:11 793 [INFO]-[main] org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(315) | Loading XML bean definitions from class path resource [config/jpa.xml]
+[MSG] 03-06 08:51:11 907 [INFO]-[main] org.springframework.core.io.support.PropertiesLoaderSupport.loadProperties(172) | Loading properties file from class path resource [properties/dev.properties]
+[MSG] 03-06 08:51:11 913 [INFO]-[main] org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.<init>(140) | JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[MSG] 03-06 08:51:11 976 [INFO]-[main] org.springframework.context.support.AbstractApplicationContext$BeanPostProcessorChecker.postProcessAfterInitialization(1374) | Bean 'dataSource' of type [class org.apache.commons.dbcp.BasicDataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[MSG] 03-06 08:51:11 983 [INFO]-[main] org.springframework.context.support.AbstractApplicationContext$BeanPostProcessorChecker.postProcessAfterInitialization(1374) | Bean 'org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter#7b5721b5' of type [class org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[MSG] 03-06 08:51:11 993 [INFO]-[main] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(285) | Building JPA container EntityManagerFactory for persistence unit 'default'
+[MSG] 03-06 08:51:12 064 [INFO]-[main] org.hibernate.annotations.common.Version.<clinit>(37) | HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+[MSG] 03-06 08:51:12 068 [INFO]-[main] org.hibernate.Version.logVersion(41) | HHH000412: Hibernate Core {4.1.7.Final}
+[MSG] 03-06 08:51:12 070 [INFO]-[main] org.hibernate.cfg.Environment.<clinit>(239) | HHH000206: hibernate.properties not found
+[MSG] 03-06 08:51:12 071 [INFO]-[main] org.hibernate.cfg.Environment.buildBytecodeProvider(342) | HHH000021: Bytecode provider name : javassist
+[MSG] 03-06 08:51:12 082 [INFO]-[main] org.hibernate.ejb.Ejb3Configuration.configure(527) | HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+[MSG] 03-06 08:51:12 185 [INFO]-[main] org.hibernate.service.jdbc.connections.internal.ConnectionProviderInitiator.instantiateExplicitConnectionProvider(188) | HHH000130: Instantiating explicit connection provider: org.hibernate.ejb.connection.InjectedDataSourceConnectionProvider
+[MSG] 03-06 08:51:12 357 [INFO]-[main] org.hibernate.dialect.Dialect.<init>(125) | HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+[MSG] 03-06 08:51:12 371 [INFO]-[main] org.hibernate.engine.transaction.internal.TransactionFactoryInitiator.initiateService(73) | HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+[MSG] 03-06 08:51:12 374 [INFO]-[main] org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory.<init>(48) | HHH000397: Using ASTQueryTranslatorFactory
+[MSG] 03-06 08:51:12 431 [INFO]-[main] org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(182) | HHH000228: Running hbm2ddl schema update
+[MSG] 03-06 08:51:12 431 [INFO]-[main] org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(193) | HHH000102: Fetching database metadata
+[MSG] 03-06 08:51:12 433 [INFO]-[main] org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(205) | HHH000396: Updating schema
+[MSG] 03-06 08:51:12 434 [INFO]-[main] org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(240) | HHH000232: Schema update complete
+[MSG] 03-06 08:51:12 457 [INFO]-[main] org.springframework.context.support.AbstractApplicationContext$BeanPostProcessorChecker.postProcessAfterInitialization(1374) | Bean 'entityManagerFactory' of type [class org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[MSG] 03-06 08:51:12 470 [INFO]-[main] org.springframework.context.support.AbstractApplicationContext$BeanPostProcessorChecker.postProcessAfterInitialization(1374) | Bean 'org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0' of type [class org.springframework.transaction.annotation.AnnotationTransactionAttributeSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[MSG] 03-06 08:51:12 472 [INFO]-[main] org.springframework.context.support.AbstractApplicationContext$BeanPostProcessorChecker.postProcessAfterInitialization(1374) | Bean 'org.springframework.transaction.config.internalTransactionAdvisor' of type [class org.springframework.transaction.interceptor.BeanFactoryTransactionAttributeSourceAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[MSG] 03-06 08:51:12 481 [INFO]-[main] org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(596) | Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@7de6504f: defining beans [org.springframework.context.support.PropertySourcesPlaceholderConfigurer#0,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.internalPersistenceAnnotationProcessor,org.springframework.aop.config.internalAutoProxyCreator,sessionFactory,dataSource,entityManagerFactory,transactionManager,org.springframework.data.repository.core.support.RepositoryInterfaceAwareBeanPostProcessor#0,org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor#0,org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0,org.springframework.transaction.interceptor.TransactionInterceptor#0,org.springframework.transaction.config.internalTransactionAdvisor,viewResolver,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor]; root of factory hierarchy
+[MSG] 03-06 08:51:12 527 [INFO]-[main] org.springframework.web.context.ContextLoader.initWebApplicationContext(313) | Root WebApplicationContext: initialization completed in 886 ms
+[MSG] 03-06 08:51:12 573 [INFO]-[main] org.springframework.web.servlet.FrameworkServlet.initServletBean(454) | FrameworkServlet 'appServlet': initialization started
+[MSG] 03-06 08:51:12 575 [INFO]-[main] org.springframework.context.support.AbstractApplicationContext.prepareRefresh(510) | Refreshing WebApplicationContext for namespace 'appServlet-servlet': startup date [Mon Mar 06 08:51:12 CST 2017]; parent: Root WebApplicationContext
+[MSG] 03-06 08:51:12 576 [INFO]-[main] org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(315) | Loading XML bean definitions from ServletContext resource [/WEB-INF/servletContext.xml]
+[MSG] 03-06 08:51:12 606 [INFO]-[main] org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider.registerDefaultFilters(222) | JSR-250 'javax.annotation.ManagedBean' found and supported for component scanning
+[MSG] 03-06 08:51:12 607 [INFO]-[main] org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider.registerDefaultFilters(230) | JSR-330 'javax.inject.Named' annotation found and supported for component scanning
+[MSG] 03-06 08:51:12 648 [INFO]-[main] org.springframework.core.io.support.PropertiesLoaderSupport.loadProperties(172) | Loading properties file from class path resource [properties/dev.properties]
+[MSG] 03-06 08:51:12 650 [INFO]-[main] org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.<init>(140) | JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[MSG] 03-06 08:51:12 655 [INFO]-[main] org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(596) | Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@441c84c4: defining beans [org.springframework.context.support.PropertySourcesPlaceholderConfigurer#0,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.internalPersistenceAnnotationProcessor,org.springframework.aop.config.internalAutoProxyCreator,org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler#0,org.springframework.web.servlet.handler.SimpleUrlHandlerMapping#0,org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping,org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter,org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter,mvcContentNegotiationManager,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0,org.springframework.format.support.FormattingConversionServiceFactoryBean#0,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0,org.springframework.web.servlet.handler.MappedInterceptor#0,org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver#0,org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver#0,org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver#0,org.springframework.web.servlet.view.InternalResourceViewResolver#0,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor]; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@7de6504f
+[MSG] 03-06 08:51:12 692 [INFO]-[main] org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler(315) | Mapped URL path [/**] onto handler 'org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler#0'
+[MSG] 03-06 08:51:12 998 [INFO]-[main] org.springframework.web.servlet.FrameworkServlet.initServletBean(473) | FrameworkServlet 'appServlet': initialization completed in 425 ms
+[MSG] 03-06 08:52:01 329 [INFO]-[main] org.springframework.web.context.ContextLoader.initWebApplicationContext(273) | Root WebApplicationContext: initialization started
+[MSG] 03-06 08:52:01 349 [INFO]-[main] org.springframework.context.support.AbstractApplicationContext.prepareRefresh(510) | Refreshing Root WebApplicationContext: startup date [Mon Mar 06 08:52:01 CST 2017]; root of context hierarchy
+[MSG] 03-06 08:52:01 393 [INFO]-[main] org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(315) | Loading XML bean definitions from ServletContext resource [/WEB-INF/applicationContext.xml]
+[MSG] 03-06 08:52:01 469 [INFO]-[main] org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider.registerDefaultFilters(222) | JSR-250 'javax.annotation.ManagedBean' found and supported for component scanning
+[MSG] 03-06 08:52:01 470 [INFO]-[main] org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider.registerDefaultFilters(230) | JSR-330 'javax.inject.Named' annotation found and supported for component scanning
+[MSG] 03-06 08:52:01 478 [INFO]-[main] org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(315) | Loading XML bean definitions from class path resource [config/jpa.xml]
+[MSG] 03-06 08:52:01 587 [INFO]-[main] org.springframework.core.io.support.PropertiesLoaderSupport.loadProperties(172) | Loading properties file from class path resource [properties/dev.properties]
+[MSG] 03-06 08:52:01 592 [INFO]-[main] org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.<init>(140) | JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[MSG] 03-06 08:52:01 656 [INFO]-[main] org.springframework.context.support.AbstractApplicationContext$BeanPostProcessorChecker.postProcessAfterInitialization(1374) | Bean 'dataSource' of type [class org.apache.commons.dbcp.BasicDataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[MSG] 03-06 08:52:01 663 [INFO]-[main] org.springframework.context.support.AbstractApplicationContext$BeanPostProcessorChecker.postProcessAfterInitialization(1374) | Bean 'org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter#33cae827' of type [class org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[MSG] 03-06 08:52:01 672 [INFO]-[main] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(285) | Building JPA container EntityManagerFactory for persistence unit 'default'
+[MSG] 03-06 08:52:01 739 [INFO]-[main] org.hibernate.annotations.common.Version.<clinit>(37) | HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+[MSG] 03-06 08:52:01 742 [INFO]-[main] org.hibernate.Version.logVersion(41) | HHH000412: Hibernate Core {4.1.7.Final}
+[MSG] 03-06 08:52:01 744 [INFO]-[main] org.hibernate.cfg.Environment.<clinit>(239) | HHH000206: hibernate.properties not found
+[MSG] 03-06 08:52:01 745 [INFO]-[main] org.hibernate.cfg.Environment.buildBytecodeProvider(342) | HHH000021: Bytecode provider name : javassist
+[MSG] 03-06 08:52:01 755 [INFO]-[main] org.hibernate.ejb.Ejb3Configuration.configure(527) | HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+[MSG] 03-06 08:52:01 858 [INFO]-[main] org.hibernate.service.jdbc.connections.internal.ConnectionProviderInitiator.instantiateExplicitConnectionProvider(188) | HHH000130: Instantiating explicit connection provider: org.hibernate.ejb.connection.InjectedDataSourceConnectionProvider
+[MSG] 03-06 08:52:02 011 [INFO]-[main] org.hibernate.dialect.Dialect.<init>(125) | HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+[MSG] 03-06 08:52:02 024 [INFO]-[main] org.hibernate.engine.transaction.internal.TransactionFactoryInitiator.initiateService(73) | HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+[MSG] 03-06 08:52:02 026 [INFO]-[main] org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory.<init>(48) | HHH000397: Using ASTQueryTranslatorFactory
+[MSG] 03-06 08:52:02 077 [INFO]-[main] org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(182) | HHH000228: Running hbm2ddl schema update
+[MSG] 03-06 08:52:02 077 [INFO]-[main] org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(193) | HHH000102: Fetching database metadata
+[MSG] 03-06 08:52:02 079 [INFO]-[main] org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(205) | HHH000396: Updating schema
+[MSG] 03-06 08:52:02 080 [INFO]-[main] org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(240) | HHH000232: Schema update complete
+[MSG] 03-06 08:52:02 102 [INFO]-[main] org.springframework.context.support.AbstractApplicationContext$BeanPostProcessorChecker.postProcessAfterInitialization(1374) | Bean 'entityManagerFactory' of type [class org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[MSG] 03-06 08:52:02 115 [INFO]-[main] org.springframework.context.support.AbstractApplicationContext$BeanPostProcessorChecker.postProcessAfterInitialization(1374) | Bean 'org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0' of type [class org.springframework.transaction.annotation.AnnotationTransactionAttributeSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[MSG] 03-06 08:52:02 117 [INFO]-[main] org.springframework.context.support.AbstractApplicationContext$BeanPostProcessorChecker.postProcessAfterInitialization(1374) | Bean 'org.springframework.transaction.config.internalTransactionAdvisor' of type [class org.springframework.transaction.interceptor.BeanFactoryTransactionAttributeSourceAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[MSG] 03-06 08:52:02 127 [INFO]-[main] org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(596) | Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@1eddbb4b: defining beans [org.springframework.context.support.PropertySourcesPlaceholderConfigurer#0,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.internalPersistenceAnnotationProcessor,org.springframework.aop.config.internalAutoProxyCreator,sessionFactory,dataSource,entityManagerFactory,transactionManager,org.springframework.data.repository.core.support.RepositoryInterfaceAwareBeanPostProcessor#0,org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor#0,org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0,org.springframework.transaction.interceptor.TransactionInterceptor#0,org.springframework.transaction.config.internalTransactionAdvisor,viewResolver,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor]; root of factory hierarchy
+[MSG] 03-06 08:52:02 172 [INFO]-[main] org.springframework.web.context.ContextLoader.initWebApplicationContext(313) | Root WebApplicationContext: initialization completed in 841 ms
+[MSG] 03-06 08:52:02 217 [INFO]-[main] org.springframework.web.servlet.FrameworkServlet.initServletBean(454) | FrameworkServlet 'appServlet': initialization started
+[MSG] 03-06 08:52:02 220 [INFO]-[main] org.springframework.context.support.AbstractApplicationContext.prepareRefresh(510) | Refreshing WebApplicationContext for namespace 'appServlet-servlet': startup date [Mon Mar 06 08:52:02 CST 2017]; parent: Root WebApplicationContext
+[MSG] 03-06 08:52:02 220 [INFO]-[main] org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(315) | Loading XML bean definitions from ServletContext resource [/WEB-INF/servletContext.xml]
+[MSG] 03-06 08:52:02 251 [INFO]-[main] org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider.registerDefaultFilters(222) | JSR-250 'javax.annotation.ManagedBean' found and supported for component scanning
+[MSG] 03-06 08:52:02 251 [INFO]-[main] org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider.registerDefaultFilters(230) | JSR-330 'javax.inject.Named' annotation found and supported for component scanning
+[MSG] 03-06 08:52:02 289 [INFO]-[main] org.springframework.core.io.support.PropertiesLoaderSupport.loadProperties(172) | Loading properties file from class path resource [properties/dev.properties]
+[MSG] 03-06 08:52:02 292 [INFO]-[main] org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.<init>(140) | JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[MSG] 03-06 08:52:02 296 [INFO]-[main] org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(596) | Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@6865eee9: defining beans [org.springframework.context.support.PropertySourcesPlaceholderConfigurer#0,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.internalPersistenceAnnotationProcessor,org.springframework.aop.config.internalAutoProxyCreator,org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler#0,org.springframework.web.servlet.handler.SimpleUrlHandlerMapping#0,org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping,org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter,org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter,mvcContentNegotiationManager,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0,org.springframework.format.support.FormattingConversionServiceFactoryBean#0,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0,org.springframework.web.servlet.handler.MappedInterceptor#0,org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver#0,org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver#0,org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver#0,org.springframework.web.servlet.view.InternalResourceViewResolver#0,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor]; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@1eddbb4b
+[MSG] 03-06 08:52:02 332 [INFO]-[main] org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler(315) | Mapped URL path [/**] onto handler 'org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler#0'
+[MSG] 03-06 08:52:02 628 [INFO]-[main] org.springframework.web.servlet.FrameworkServlet.initServletBean(473) | FrameworkServlet 'appServlet': initialization completed in 410 ms
+[MSG] 03-06 08:56:32 690 [INFO]-[main] org.springframework.web.context.ContextLoader.initWebApplicationContext(273) | Root WebApplicationContext: initialization started
+[MSG] 03-06 08:56:32 709 [INFO]-[main] org.springframework.context.support.AbstractApplicationContext.prepareRefresh(510) | Refreshing Root WebApplicationContext: startup date [Mon Mar 06 08:56:32 CST 2017]; root of context hierarchy
+[MSG] 03-06 08:56:32 752 [INFO]-[main] org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(315) | Loading XML bean definitions from ServletContext resource [/WEB-INF/applicationContext.xml]
+[MSG] 03-06 08:56:32 824 [INFO]-[main] org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider.registerDefaultFilters(222) | JSR-250 'javax.annotation.ManagedBean' found and supported for component scanning
+[MSG] 03-06 08:56:32 824 [INFO]-[main] org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider.registerDefaultFilters(230) | JSR-330 'javax.inject.Named' annotation found and supported for component scanning
+[MSG] 03-06 08:56:32 833 [INFO]-[main] org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(315) | Loading XML bean definitions from class path resource [config/jpa.xml]
+[MSG] 03-06 08:56:32 939 [INFO]-[main] org.springframework.core.io.support.PropertiesLoaderSupport.loadProperties(172) | Loading properties file from class path resource [properties/dev.properties]
+[MSG] 03-06 08:56:32 944 [INFO]-[main] org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.<init>(140) | JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[MSG] 03-06 08:56:33 009 [INFO]-[main] org.springframework.context.support.AbstractApplicationContext$BeanPostProcessorChecker.postProcessAfterInitialization(1374) | Bean 'dataSource' of type [class org.apache.commons.dbcp.BasicDataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[MSG] 03-06 08:56:33 017 [INFO]-[main] org.springframework.context.support.AbstractApplicationContext$BeanPostProcessorChecker.postProcessAfterInitialization(1374) | Bean 'org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter#3abd5626' of type [class org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[MSG] 03-06 08:56:33 026 [INFO]-[main] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(285) | Building JPA container EntityManagerFactory for persistence unit 'default'
+[MSG] 03-06 08:56:33 093 [INFO]-[main] org.hibernate.annotations.common.Version.<clinit>(37) | HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+[MSG] 03-06 08:56:33 097 [INFO]-[main] org.hibernate.Version.logVersion(41) | HHH000412: Hibernate Core {4.1.7.Final}
+[MSG] 03-06 08:56:33 099 [INFO]-[main] org.hibernate.cfg.Environment.<clinit>(239) | HHH000206: hibernate.properties not found
+[MSG] 03-06 08:56:33 100 [INFO]-[main] org.hibernate.cfg.Environment.buildBytecodeProvider(342) | HHH000021: Bytecode provider name : javassist
+[MSG] 03-06 08:56:33 111 [INFO]-[main] org.hibernate.ejb.Ejb3Configuration.configure(527) | HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+[MSG] 03-06 08:56:33 216 [INFO]-[main] org.hibernate.service.jdbc.connections.internal.ConnectionProviderInitiator.instantiateExplicitConnectionProvider(188) | HHH000130: Instantiating explicit connection provider: org.hibernate.ejb.connection.InjectedDataSourceConnectionProvider
+[MSG] 03-06 08:56:33 379 [INFO]-[main] org.hibernate.dialect.Dialect.<init>(125) | HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+[MSG] 03-06 08:56:33 391 [INFO]-[main] org.hibernate.engine.transaction.internal.TransactionFactoryInitiator.initiateService(73) | HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+[MSG] 03-06 08:56:33 394 [INFO]-[main] org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory.<init>(48) | HHH000397: Using ASTQueryTranslatorFactory
+[MSG] 03-06 08:56:33 450 [INFO]-[main] org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(182) | HHH000228: Running hbm2ddl schema update
+[MSG] 03-06 08:56:33 450 [INFO]-[main] org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(193) | HHH000102: Fetching database metadata
+[MSG] 03-06 08:56:33 452 [INFO]-[main] org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(205) | HHH000396: Updating schema
+[MSG] 03-06 08:56:33 452 [INFO]-[main] org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(240) | HHH000232: Schema update complete
+[MSG] 03-06 08:56:33 476 [INFO]-[main] org.springframework.context.support.AbstractApplicationContext$BeanPostProcessorChecker.postProcessAfterInitialization(1374) | Bean 'entityManagerFactory' of type [class org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[MSG] 03-06 08:56:33 491 [INFO]-[main] org.springframework.context.support.AbstractApplicationContext$BeanPostProcessorChecker.postProcessAfterInitialization(1374) | Bean 'org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0' of type [class org.springframework.transaction.annotation.AnnotationTransactionAttributeSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[MSG] 03-06 08:56:33 493 [INFO]-[main] org.springframework.context.support.AbstractApplicationContext$BeanPostProcessorChecker.postProcessAfterInitialization(1374) | Bean 'org.springframework.transaction.config.internalTransactionAdvisor' of type [class org.springframework.transaction.interceptor.BeanFactoryTransactionAttributeSourceAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[MSG] 03-06 08:56:33 503 [INFO]-[main] org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(596) | Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@6b8d79ee: defining beans [org.springframework.context.support.PropertySourcesPlaceholderConfigurer#0,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.internalPersistenceAnnotationProcessor,org.springframework.aop.config.internalAutoProxyCreator,sessionFactory,dataSource,entityManagerFactory,transactionManager,org.springframework.data.repository.core.support.RepositoryInterfaceAwareBeanPostProcessor#0,org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor#0,org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0,org.springframework.transaction.interceptor.TransactionInterceptor#0,org.springframework.transaction.config.internalTransactionAdvisor,viewResolver,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor]; root of factory hierarchy
+[MSG] 03-06 08:56:33 551 [INFO]-[main] org.springframework.web.context.ContextLoader.initWebApplicationContext(313) | Root WebApplicationContext: initialization completed in 859 ms
+[MSG] 03-06 08:56:33 600 [INFO]-[main] org.springframework.web.servlet.FrameworkServlet.initServletBean(454) | FrameworkServlet 'appServlet': initialization started
+[MSG] 03-06 08:56:33 602 [INFO]-[main] org.springframework.context.support.AbstractApplicationContext.prepareRefresh(510) | Refreshing WebApplicationContext for namespace 'appServlet-servlet': startup date [Mon Mar 06 08:56:33 CST 2017]; parent: Root WebApplicationContext
+[MSG] 03-06 08:56:33 603 [INFO]-[main] org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(315) | Loading XML bean definitions from ServletContext resource [/WEB-INF/servletContext.xml]
+[MSG] 03-06 08:56:33 634 [INFO]-[main] org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider.registerDefaultFilters(222) | JSR-250 'javax.annotation.ManagedBean' found and supported for component scanning
+[MSG] 03-06 08:56:33 635 [INFO]-[main] org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider.registerDefaultFilters(230) | JSR-330 'javax.inject.Named' annotation found and supported for component scanning
+[MSG] 03-06 08:56:33 676 [INFO]-[main] org.springframework.core.io.support.PropertiesLoaderSupport.loadProperties(172) | Loading properties file from class path resource [properties/dev.properties]
+[MSG] 03-06 08:56:33 678 [INFO]-[main] org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.<init>(140) | JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[MSG] 03-06 08:56:33 683 [INFO]-[main] org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(596) | Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@5f30c3b2: defining beans [org.springframework.context.support.PropertySourcesPlaceholderConfigurer#0,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.internalPersistenceAnnotationProcessor,org.springframework.aop.config.internalAutoProxyCreator,org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler#0,org.springframework.web.servlet.handler.SimpleUrlHandlerMapping#0,org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping,org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter,org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter,mvcContentNegotiationManager,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0,org.springframework.format.support.FormattingConversionServiceFactoryBean#0,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0,org.springframework.web.servlet.handler.MappedInterceptor#0,org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver#0,org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver#0,org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver#0,org.springframework.web.servlet.view.InternalResourceViewResolver#0,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor]; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@6b8d79ee
+[MSG] 03-06 08:56:33 721 [INFO]-[main] org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler(315) | Mapped URL path [/**] onto handler 'org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler#0'
+[MSG] 03-06 08:56:34 015 [INFO]-[main] org.springframework.web.servlet.FrameworkServlet.initServletBean(473) | FrameworkServlet 'appServlet': initialization completed in 415 ms

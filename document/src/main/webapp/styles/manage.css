@@ -1,0 +1,68 @@
+*{margin: 0;padding:0}
+html,body{
+  /*height: 100%;*/
+  width:100%;
+}
+body{
+  background: url("../images/bg-yellow.png") repeat;
+}
+.hidden{
+  display: none;
+}
+a{
+  text-decoration: none;
+}
+header{
+  margin: 10px auto;
+  text-align: center;
+  /*height: 100px;*/
+  /*background: url("../images/title-yellow.png") no-repeat;*/
+}
+header>a{
+  float:right;
+  margin-right: 30px;
+}
+.wrap{
+text-align: center;
+overflow: hidden;
+}
+.row{
+  padding-top: 10px;
+}
+aside{
+  height: 900px;
+  position: relative;
+  background-color: #f5f5f5;
+  margin-right: 60px;
+}
+aside .nav{
+  width: auto;
+margin: 0 20px;
+}
+aside .recently{
+  height: 100px;
+  border:2px red;
+}
+aside .contribution{
+  height: 100px;
+  border:2px red;
+}
+section{
+  height:900px;
+  background-color: #f5f5f5;
+}
+section .manage{
+  overflow: hidden;
+  margin-top: 30px;
+}
+section .pagination-container{
+  height: 700px;
+}
+section .pagination-container table{
+  width: 700px;
+  margin:20% auto;
+}
+section nav{
+  position: absolute;
+  bottom: 0px;right: 15%;
+}
