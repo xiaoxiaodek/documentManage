@@ -1,5 +1,5 @@
 $(function(){
-  var user=document.cookie.slice(document.cookie.lastIndexOf("=")+1);
+  var user=document.cookie.match(/user=(.*?)(;|$)/)[1];
   $("#button").click(
     function(){
       $.ajax({

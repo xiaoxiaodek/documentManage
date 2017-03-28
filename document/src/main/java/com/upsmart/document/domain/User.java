@@ -25,6 +25,10 @@ public class User {
     @Column(name = "upwd", length = 32, nullable = false)
     private String upwd;
 
+    //权限
+    @Column(name = "verify",nullable = false)
+    private Boolean verify;
+
     /**
      *
      * @return
@@ -71,5 +75,20 @@ public class User {
      */
     public void setUpwd(String upwd) {
         this.upwd = upwd;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public Boolean getVerify() {
+        return verify;
+    }
+    /**
+     *
+     * @param verify
+     */
+    public void setVerify(Boolean verify) {
+        this.verify = verify;
     }
 }

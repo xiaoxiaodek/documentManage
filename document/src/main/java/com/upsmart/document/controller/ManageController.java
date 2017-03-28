@@ -83,4 +83,28 @@ public class ManageController {
         }
         return msg;
     }
+    @RequestMapping(value = "delete",method = RequestMethod.POST)
+    @ResponseBody
+    public  BaseMessage delete(@RequestBody  Map<String, Object> map){
+        BaseMessage msg = new BaseMessage();
+        String owner=map.get("user").toString();
+        List<Integer> id= (List<Integer>) map.get("id");
+        String result=manageService.deleteDoc(owner,id);
+        msg.setMsg(result);
+        return msg;
+
+    }
+
+    @RequestMapping(value = "chDiscription",method = RequestMethod.POST)
+    @ResponseBody
+    public  BaseMessage chDiscription(@RequestBody  Map<String, Object> map){
+        BaseMessage msg = new BaseMessage();
+        String owner=map.get("user").toString();
+        Integer id= (Integer) map.get("id");
+        String change= map.get("change").toString();
+        String result=manageService.chDiscription( owner, id, change);
+        msg.setMsg(result);
+        return msg;
+
+    }
 }

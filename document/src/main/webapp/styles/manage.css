@@ -35,10 +35,21 @@ aside{
   background-color: #f5f5f5;
   margin-right: 60px;
 }
-aside .nav{
-  width: auto;
-margin: 0 20px;
+aside ._nav{
+  text-align: center;
 }
+aside .nav{
+  width: 350px;
+  margin: 0 auto;
+}
+/*aside .nav ul{
+  display: inline-block;
+  overflow: auto;
+}
+aside .nav ul li{
+  display: inline;
+  float: left;
+}*/
 aside .recently{
   height: 100px;
   border:2px red;

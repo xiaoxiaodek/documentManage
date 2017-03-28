@@ -29,8 +29,13 @@ import org.springframework.stereotype.Service;
         String upassword = (String) map.get("upassword");
         User user = this.userRepository.findByUname(uname);
         if(null != user) {
+//            System.out.println(Md5.MD5(upassword));
             if(user.getUpwd().equals(Md5.MD5(upassword))) {
-                result = "";
+                if(user.getVerify()){
+                    result = "1";
+                }else{
+                    result = "0";
+                }
             }
         }
         return result;

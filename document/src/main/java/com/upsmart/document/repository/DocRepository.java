@@ -21,10 +21,10 @@ import java.util.List;
      * @return
      */
     List<Doc> findByOwner(String owner);
-
+    Doc findById(Integer id);
     /**
      *
-     * @param s
+     * @param
      * @return
      */
     @Modifying

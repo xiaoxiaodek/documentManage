@@ -4,6 +4,7 @@ com/upsmart/document/util/JSONUtil.class
 com/upsmart/document/repository/DocRepository.class
 com/upsmart/document/dto/DocDto.class
 com/upsmart/document/domain/Doc.class
+com/upsmart/document/controller/InterceptController.class
 com/upsmart/document/service/LoginService.class
 com/upsmart/document/domain/User.class
 com/upsmart/document/service/ContractService.class

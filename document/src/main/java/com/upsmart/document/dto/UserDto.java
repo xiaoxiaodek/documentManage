@@ -11,6 +11,10 @@ public class UserDto {
 
     private String uname;
 
+    private String upwd;
+
+    private Boolean verify;
+
     /**
      *
      * @return
@@ -41,5 +45,27 @@ public class UserDto {
      */
     public void setUname(String uname) {
         this.uname = uname;
+    }
+
+    public String getUpwd() {
+        return upwd;
+    }
+
+    public void setUpwd(String upwd) {
+        this.upwd = upwd;
+    }
+    /**
+     *
+     * @return
+     */
+    public Boolean getVerify() {
+        return verify;
+    }
+    /**
+     *
+     * @param verify
+     */
+    public void setVerify(Boolean verify) {
+        this.verify = verify;
     }
 }

@@ -1,18 +1,19 @@
 $(function(){
-    var user=document.cookie.split(";")[0].split("=")[1];
+    var user=document.cookie.match(/user=(.*?)(;|$)/)[1];
     var param={"user":user};
-    $.ajax({
-        type:"POST",   //http请求方式
-        url:"../manage/show", //发送给服务器的url
-        data:JSON.stringify(param),
-        //JSON.stringify(param), //发送给服务器的参数
-        dataType:"json",
-        contentType:"application/json",
-        success:function(data) {
-        	returnresult = data.data;
-        	showtable(returnresult);
-        }
-    });
+    // $.ajax({
+    //     type:"POST",   //http请求方式
+    //     url:"../manage/show", //发送给服务器的url
+    //     data:JSON.stringify(param),
+    //     //JSON.stringify(param), //发送给服务器的参数
+    //     dataType:"json",
+    //     contentType:"application/json",
+    //     success:function(data) {
+    //     	returnresult = data.data;
+    //     	showtable(returnresult);
+    //     }
+    // });
+    searchData(param);
     function showtable(returnresult){
     if(returnresult.length <= 0) {
         var nodata = "<tr><td colspan = '6'>没有数据</td></tr>";
@@ -79,7 +80,7 @@ $(function(){
         function searchData(param){
           debugger;
           $.ajax({
-            url:"../manage/show",
+            url:"/manage/show",
             type:"POST",
             data:JSON.stringify(param),
             dataType:"json",
@@ -96,6 +97,57 @@ $(function(){
         var seo=$("#seo").val();
         param.seo=seo;
         searchData(param);
+      })
+      $("#btn_edit").click(function(){
+        var  checked=$('input.msg:checked');
+        var change=$('#discriptionCg');
+        if(checked.length==1){
+          $.ajax({
+            type:"POST",
+            url:"/manage/chDiscription",
+            data:JSON.stringify({'user':user,'id':parseInt(checked[0].name),'change':change.val()}),
+            dataType:"json",
+            contentType:"application/json",
+            success:function(data){
+              if(data.msg==""){
+                alert("修改成功");
+                $("#editModal").hide();
+                window.location.reload();
+              }else {
+                alert("error");
+                $("#editModal").hide();
+              }
+            }
+          })
+        }else {
+          alert("只能修改一项");
+        }
+      })
+      $("#btn_delete").click(function(){
+        var  checked=$('input.msg:checked');
+        var id=[];
+        for(var i=0;i<checked.length;i++){
+          id.push(parseInt(checked[i].name));
+        }
+        if(checked.length){
+          $.ajax({
+            type:"POST",
+            url:"/manage/delete",
+            data:JSON.stringify({'user':user,'id':id}),
+            dataType:"json",
+            contentType:"application/json",
+            success:function(data){
+              if(data.msg==""){
+                alert("删除成功");
+                window.location.reload();
+              }else {
+                alert("error");
+              }
+            }
+          })
+        }else{
+          alert("未选中文件")
+        }
       })
 
 })

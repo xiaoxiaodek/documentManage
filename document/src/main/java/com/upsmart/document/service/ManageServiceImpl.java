@@ -1,5 +1,4 @@
 package com.upsmart.document.service;
-
 import com.upsmart.document.repository.DocRepository;
 import com.upsmart.document.util.JSONUtil;
 import org.slf4j.Logger;
@@ -102,6 +101,31 @@ public class ManageServiceImpl implements ManageService{
         return result;
 
     }
+    public String deleteDoc(String owner,List<Integer> id){
+        String result="";
+        try{
+            for(Integer i:id){
+            this.docRepository.delete(this.docRepository.findById(i));
+            }
+        }catch (Exception e){
+            result="出错了！";
+        }
+        return result;
+    }
+
+    public String chDiscription(String owner,Integer id,String change){
+        String result="";
+        try {
+            Doc doc = this.docRepository.findById(id);
+            doc.setDiscription(change);
+            docRepository.save(doc);
+        }catch(Exception e){
+            result="出错啦！";
+        }
+        return result;
+    }
+
+
 }
 
 

@@ -9,6 +9,7 @@
 /home/upsmart/document/src/main/java/com/upsmart/document/service/LoginServiceImpl.java
 /home/upsmart/document/src/main/java/com/upsmart/document/domain/Doc.java
 /home/upsmart/document/src/main/java/com/upsmart/document/repository/DocRepository.java
+/home/upsmart/document/src/main/java/com/upsmart/document/controller/InterceptController.java
 /home/upsmart/document/src/main/java/com/upsmart/document/msg/BaseMessage.java
 /home/upsmart/document/src/main/java/com/upsmart/document/service/LoginService.java
 /home/upsmart/document/src/main/java/com/upsmart/document/service/ContractService.java

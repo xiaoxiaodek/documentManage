@@ -2,7 +2,10 @@ package com.upsmart.document.controller;
 
 import java.util.Map;
 
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.xml.ws.Response;
 
 import com.upsmart.document.constant.GlobalConstants;
 import com.upsmart.document.msg.BaseMessage;
@@ -41,11 +44,16 @@ public class LoginController {
         BaseMessage msg = new BaseMessage();
         try {
             String result=this.loginService.login(map);
-            if (!"".equals(result)) {
+            if (result.equals("1")) {
+                ResponseUtil.buildResMsg(msg, StatusCode.SUCCESS);
+                msg.setData(1);
+            } else if(result.equals("0")){
+                ResponseUtil.buildResMsg(msg, StatusCode.SUCCESS);
+                msg.setData(0);
+            }
+            else{
                 logger.error("登陆异常");
                 ResponseUtil.buildResMsg(msg, StatusCode.ACCOUNT_PWD_INVALID_NOT_EXISTS);
-            } else {
-                ResponseUtil.buildResMsg(msg, StatusCode.SUCCESS);
             }
         } catch (Exception e) {
             logger.error("获取客户公司异常");
@@ -54,6 +62,7 @@ public class LoginController {
         }
         return msg;
     }
+    //&&result.equals("0"))
 
     /**
      *

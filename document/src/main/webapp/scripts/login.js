@@ -17,11 +17,21 @@ $(function () {
                 contentType:"application/json",
                 data:JSON.stringify(params),
                 success: function (data) {
+                  debugger;
                     if (data.code == "00000") {
                         alert("登录成功");
                         document.cookie='user='+name+';expires=1;path="/"';
                         // $.cookie(‘cookieName','cookieValue', {expires：7, path：'/'});
-                       window.location.href="views/norManage.html";
+                        switch (data.data) {
+                          case 1:
+                            window.location.href="./views/rootManage.html";
+                            break;
+                          case 0:
+                            window.location.href="./views/norManage.html";
+                            break;
+                          default:
+                            window.location.href="./views/norManage.html"
+                        }
                     }
                     else {
                         alert("用户名或密码错误！");
@@ -29,7 +39,7 @@ $(function () {
                 }
             })
         } else {
-          alert(1);
+          alert(error);
             return false;
         }
     })
