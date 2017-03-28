@@ -19,8 +19,8 @@ public enum StatusCode {
     ERROR("00004", "操作出错,"),
     ERROR_PREPWD("00006","原始密码出错"),
     SYSTEM_ERROR("20101", "系统异常"),
-    ERROR_INPUT("00005","INPUT ERROR");
-
+    ERROR_INPUT("00005","INPUT ERROR"),
+    DATA_ERROR("00007","数据出错");
     private String code;
     private String msg;
 

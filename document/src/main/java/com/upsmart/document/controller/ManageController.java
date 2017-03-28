@@ -4,14 +4,16 @@ import com.upsmart.document.msg.BaseMessage;
 import com.upsmart.document.msg.StatusCode;
 import com.upsmart.document.service.ManageService;
 import com.upsmart.document.util.ResponseUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.Map;
 
@@ -25,6 +27,8 @@ import java.util.Map;
 @RequestMapping(value="manage")
 public class ManageController {
 
+    private static Logger logger = LoggerFactory.getLogger(ManageController.class);
+
     @Autowired private ManageService manageService;
 
     /**
@@ -36,28 +40,45 @@ public class ManageController {
     @ResponseBody
     public BaseMessage show(@RequestBody  Map<String, Object> map){
         BaseMessage msg = new BaseMessage();
+        String seo="";
         String user=map.get("user").toString();
+        if(map.containsKey("seo")){seo=map.get("seo").toString();};
         try {
-            List<Map<String, Object>> result=this.manageService.findByOwner(user);
-            msg.setData(result);
-
+            if(seo==null||seo.equals("")){
+                List<Map<String, Object>> result=this.manageService.findByOwner(user);
+                msg.setData(result);
+            }else{
+                List<Map<String, Object>> result=this.manageService.findByOwner(user,seo);
+                msg.setData(result);
+            }
         } catch (Exception e) {
             ResponseUtil.buildResMsg(msg, StatusCode.SYSTEM_ERROR);
             e.printStackTrace();
         }
         return msg;
     }
-    @RequestMapping(value = "show2",method = RequestMethod.POST)
+    // 新增doc，并在doc表添加目录
+    @RequestMapping(value = "upLoadDoc", method = RequestMethod.POST)
     @ResponseBody
-    public BaseMessage upLoad(@RequestBody  Map<String, Object> map){
+    public BaseMessage upLoadDoc(HttpServletRequest request, HttpSession sesssion,
+                                 @RequestParam("s") String s,
+                                 @RequestParam(value = "file", required = false) MultipartFile[] files) {
         BaseMessage msg = new BaseMessage();
-        String user=map.get("user").toString();
         try {
-            List<Map<String, Object>> result=this.manageService.findByOwner(user);
-            msg.setData(result);
-
+            // 写入
+            String path = request.getSession().getServletContext().getRealPath("/file/doc/");
+            String result = this.manageService.upLoadDoc(path, s, files);
+            if(!result.equals("")){
+                ResponseUtil.buildResMsg(msg, StatusCode.DATA_ERROR);
+                msg.setData(result);
+            }else{
+                ResponseUtil.buildResMsg(msg, StatusCode.SUCCESS);
+                msg.setData(result);
+            }
         } catch (Exception e) {
-            ResponseUtil.buildResMsg(msg, StatusCode.SYSTEM_ERROR);
+            logger.error("上传文件失败");
+            msg.setData("系统出错");
+            ResponseUtil.buildResMsg(msg,StatusCode.SYSTEM_ERROR);
             e.printStackTrace();
         }
         return msg;

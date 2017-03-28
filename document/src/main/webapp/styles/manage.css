@@ -55,11 +55,22 @@ section .manage{
   overflow: hidden;
   margin-top: 30px;
 }
+section .seo{
+  float: right;
+  width:40%;
+}
+section .seo::before{
+  content: "";
+  clear: both;
+}
+section .seo .form-control{
+  width: auto;
+}
 section .pagination-container{
-  height: 700px;
+  height: 800px;
 }
 section .pagination-container table{
-  width: 700px;
+  width: 800px;
   margin:20% auto;
 }
 section nav{

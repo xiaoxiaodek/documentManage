@@ -1,6 +1,8 @@
 package com.upsmart.document.repository;
 
 import com.upsmart.document.domain.Doc;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
 
@@ -19,4 +21,13 @@ import java.util.List;
      * @return
      */
     List<Doc> findByOwner(String owner);
+
+    /**
+     *
+     * @param s
+     * @return
+     */
+    @Modifying
+    @Query(value = "select * from doc where owner=?1 and  type=?2",nativeQuery = true)
+    List<Doc> findByOwner(String owner ,String seo);
 }

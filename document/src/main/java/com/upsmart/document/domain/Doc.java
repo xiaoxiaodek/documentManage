@@ -25,7 +25,7 @@ import javax.persistence.*;
         private String type;
 
          //文件路径
-        @Column(name="path",length = 20,nullable = false)
+        @Column(name="path",length = 50,nullable = false)
         private String path;
         // 文件描述
         @Column(name = "discription", length = 32, nullable = false)

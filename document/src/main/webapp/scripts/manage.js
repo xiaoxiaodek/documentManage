@@ -1,6 +1,6 @@
 $(function(){
-    var user=document.cookie.slice(document.cookie.lastIndexOf("=")+1);
-    param={"user":user};
+    var user=document.cookie.split(";")[0].split("=")[1];
+    var param={"user":user};
     $.ajax({
         type:"POST",   //http请求方式
         url:"../manage/show", //发送给服务器的url
@@ -23,7 +23,7 @@ $(function(){
           hidhtml= hidhtml +"<tr id=' "+returnresult[i].id+" '><td><input type='checkbox' class='msg' name=' "+returnresult[i].id+
           " '></td><td>"+returnresult[i].name+
           "</td><td>"+returnresult[i].type+"</td><td>"+returnresult[i].discription+
-          "</td><td>"+returnresult[i].path+"</td></tr>";
+          "</td><td>"+returnresult[i].path+"</td><td><a download='' href='../file/doc/"+returnresult[i].name+"'>下载</a></td><td><a index='"+returnresult[i].id+"'>删除</a></td></tr>";
       }
       $("#hidden-table").html(hidhtml);
 
@@ -50,31 +50,53 @@ $(function(){
         		$("#msgtable").append(new_content); //装载对应分页的内容
          }
        }
-      //  $("#btn_manage").on("click","a",function(e){
-      //    switch(e.currentTarget.id){
-      //      case btn_upload:
-      //        upload();
-      //        break;
-      //    }
-      //  })
-      //  function upload(){
-      //
-       //
-      //  }
       $("#btn_upload").click(function(){
         var formData=new FormData;
+        var s={"info":$("#discription").val(),"user":user}
         formData.append("file",$("#file")[0].files[0]);
+        formData.append("s",JSON.stringify(s));
         $.ajax({
-                url: '/file/doc/',
+                url: '/manage/upLoadDoc',
                 type: 'POST',
                 cache: false,
                 data: formData,
                 processData: false,
                 contentType: false
-            }).done(function(res) {
-              alert(success);
-            }).fail(function(res) {});
+            }).success(function(res) {
+              debugger;
+              var status=res.code;
+              if(status==00007){
+                alert("数据出错");
+              }
+              else if(status==00000){
+                alert("上传成功");
+                $("#myModal").hide();
+                window.location.reload();
+              }
+            }).fail(function(res) {alert("error");});
         })
+
+        function searchData(param){
+          debugger;
+          $.ajax({
+            url:"../manage/show",
+            type:"POST",
+            data:JSON.stringify(param),
+            dataType:"json",
+            contentType:"application/json",
+            success:function(data){
+              showtable(data.data);
+            },
+            error:function(data){
+              alert("error");
+            }
+          })
+        }
+      $("#search").click(function(){
+        var seo=$("#seo").val();
+        param.seo=seo;
+        searchData(param);
+      })
 
 })
 //[{name: "算法", path: "/file", discription: "十分", type: "psf"}]

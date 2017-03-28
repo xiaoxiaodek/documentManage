@@ -1,6 +1,7 @@
 package com.upsmart.document.service;
 
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 import java.util.Map;
@@ -14,6 +15,15 @@ import java.util.Map;
 @Service
 public interface ManageService {
     public List<Map<String, Object>> findByOwner(String owner);
+    public List<Map<String, Object>> findByOwner(String owner,String seo);
 
-    public String upLoad();
+    /**
+     * @param path
+     * @param s
+     * @param file
+     * @return
+     */
+    /*public String upLoad();*/
+    public String upLoadDoc(String path, String s, MultipartFile[] file);
+
 }
