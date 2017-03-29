@@ -21,6 +21,15 @@ import java.util.List;
      * @return
      */
     List<Doc> findByOwner(String owner);
+    /**
+     * @param type
+     * @return
+     */
+    List<Doc> findByType(String type);
+    /**
+     * @param id
+     * @return
+     */
     Doc findById(Integer id);
     /**
      *
@@ -30,4 +39,12 @@ import java.util.List;
     @Modifying
     @Query(value = "select * from doc where owner=?1 and  type=?2",nativeQuery = true)
     List<Doc> findByOwner(String owner ,String seo);
+    /**
+     *
+     * @param
+     * @return
+     */
+    @Modifying
+    @Query(value = "select * from doc",nativeQuery = true)
+    List<Doc> findAll();
 }

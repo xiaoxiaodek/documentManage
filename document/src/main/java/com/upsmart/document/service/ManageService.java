@@ -13,9 +13,11 @@ import java.util.Map;
  */
 @Service
 public interface ManageService {
-    public List<Map<String, Object>> findByOwner(String owner);
-    public List<Map<String, Object>> findByOwner(String owner,String seo);
-
+    //普通用户操作
+    public List<Map<String, Object>> docFindByOwner(String owner);
+    public List<Map<String, Object>> docFindByOwner(String owner,String seo);
+    public List<Map<String, Object>> bookFindByOwner(String owner);
+    public List<Map<String, Object>> bookFindByOwner(String owner,String seo);
 
     /**
      * @param path
@@ -25,7 +27,15 @@ public interface ManageService {
      */
     /*public String upLoad();*/
     public String upLoadDoc(String path, String s, MultipartFile[] file);
-    public String deleteDoc(String owner,List<Integer> id);
-    public String chDiscription(String owner,Integer id,String change);
+    public String upLoadBook(String path, String s, MultipartFile[] file);
 
+    //管理员用户操作
+
+
+
+    //公用操作
+    public String deleteDoc(String owner,List<Integer> id);
+    public String deleteBook(String owner,List<Integer> id);
+    public String chDocDiscription(String owner,Integer id,String change);
+    public String chBookDiscription(String owner,Integer id,String change);
 }

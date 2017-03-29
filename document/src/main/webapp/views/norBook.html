@@ -12,7 +12,7 @@
 </head>
 <body>
 <header>
-  <span>文档管理个人中心</span>
+  <span>书籍管理个人中心</span>
   <a href="../index.html">退出</a>
   <a href="changePwd.html">修改密码</a>
 </header>
@@ -22,8 +22,8 @@
       <div class="_nav">
         <ul class="nav nav-pills">
         <li><a id="recent" href="#">最近上传</a></li>
-        <li class="active"><a id="upload" href="#">文档管理</a></li>
-        <li><a id="download" href="./norBook.html">书籍管理</a></li>
+        <li><a id="upload" href="./norManage.html">文档管理</a></li>
+        <li class="active"><a id="download" href="#">书籍管理</a></li>
 
         </ul>
         <div class="recently"></div>
@@ -529,15 +529,20 @@
      <section class="col-md-7">
       <div class="manage">
         <div class="seo input-group">
-          <span class="input-group-addon">文件类型</span>
+          <!-- <select class="input-group-addon">
+            <option value="">书籍类型</option>
+            <option value="">书籍标签</option>
+          </select> -->
+          <span class="input-group-addon" data-toggle="dropdown">书籍类型</span>
           <input type="text" class="form-control" value="" id="seo">
           <button class="btn btn-primary form-control" type="button" name="button" id="search">点击搜索</button>
         </div>
         <ul class="nav navbar-nav" id="btn_manage">
           <li><a  href="#" data-toggle="modal" data-target="#myModal">上传</a></li>
           <li><a id="btn_download" href="#">下载</a></li>
-          <li><a  data-toggle="modal" data-target="#editModal" href="#">编辑</a></li>
           <li><a id="btn_delete" href="#">删除</a></li>
+          <li><a  data-toggle="modal" data-target="#editModal" href="#">编辑描述</a></li>
+          <li><a  data-toggle="modal" data-target="#" href="#">编辑标签</a></li>
         </ul>
       </div>
 
@@ -547,6 +552,7 @@
             <tr>
               <td></td>
               <td>名称</td>
+              <td>标签</td>
               <td>文档类型</td>
               <td>描述</td>
               <td>存储路径</td>
@@ -573,11 +579,23 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
-                <h4 class="modal-title" id="myModalLabel">上传文件</h4>
+                <h4 class="modal-title" id="myModalLabel">上传书籍</h4>
             </div>
-            <div class="modal-body">
+            <div class="modal-body" style="width:447px">
                 <input multiple="multiple" type="file" name="file" id="file"><br/>
-                <textarea id="discription" rows="4" cols="50" placeholder="请输入文件描述" class="textarea"></textarea>
+                <div class="input-group">
+                <span class="input-group-addon">书籍类别</span>
+                <select class="form-control" data-style="btn-info" name="type" id="type">
+                  <option value="计算机技术">计算机技术</option>
+                  <option value="书法篆刻">书法篆刻</option>
+                  <option value="中国文学">中国文学</option>
+                  <option value="哲学类">哲学类</option>
+                  <option value="摄影影视">摄影影视</option>
+                  <option value="其他">其他</option>
+                </select>
+                </div>
+                <br>
+                <textarea id="discription" rows="4" cols="50" placeholder="请输入书籍描述" class="textarea"></textarea>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -610,7 +628,7 @@
 <script src="../scripts/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/tether/1.4.0/js/tether.min.js"></script>
 <script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="../scripts/manage.js"></script>
+<script src="../scripts/bookManage.js"></script>
 <script src="../scripts/jquery.pagination.js"></script>
 </body>
 </html>

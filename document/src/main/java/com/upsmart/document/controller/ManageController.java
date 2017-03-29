@@ -45,10 +45,10 @@ public class ManageController {
         if(map.containsKey("seo")){seo=map.get("seo").toString();};
         try {
             if(seo==null||seo.equals("")){
-                List<Map<String, Object>> result=this.manageService.findByOwner(user);
+                List<Map<String, Object>> result=this.manageService.docFindByOwner(user);
                 msg.setData(result);
             }else{
-                List<Map<String, Object>> result=this.manageService.findByOwner(user,seo);
+                List<Map<String, Object>> result=this.manageService.docFindByOwner(user,seo);
                 msg.setData(result);
             }
         } catch (Exception e) {
@@ -83,6 +83,9 @@ public class ManageController {
         }
         return msg;
     }
+    /*
+    *
+    * */
     @RequestMapping(value = "delete",method = RequestMethod.POST)
     @ResponseBody
     public  BaseMessage delete(@RequestBody  Map<String, Object> map){
@@ -102,9 +105,71 @@ public class ManageController {
         String owner=map.get("user").toString();
         Integer id= (Integer) map.get("id");
         String change= map.get("change").toString();
-        String result=manageService.chDiscription( owner, id, change);
+        String result=manageService.chDocDiscription( owner, id, change);
         msg.setMsg(result);
         return msg;
 
     }
+    @RequestMapping(value = "showBooks",method = RequestMethod.POST)
+    @ResponseBody
+    public BaseMessage showBooks(@RequestBody  Map<String, Object> map){
+        BaseMessage msg = new BaseMessage();
+        String seo="";
+        String user=map.get("user").toString();
+        if(map.containsKey("seo")){seo=map.get("seo").toString();};
+        try {
+            if(seo==null||seo.equals("")){
+                List<Map<String, Object>> result=this.manageService.bookFindByOwner(user);
+                msg.setData(result);
+            }else{
+                List<Map<String, Object>> result=this.manageService.bookFindByOwner(user,seo);
+                msg.setData(result);
+            }
+        } catch (Exception e) {
+            ResponseUtil.buildResMsg(msg, StatusCode.SYSTEM_ERROR);
+            e.printStackTrace();
+        }
+        return msg;
+    }
+    @RequestMapping(value = "UpLoadBook",method = RequestMethod.POST)
+    @ResponseBody
+    public BaseMessage UpLoadBook(){
+        BaseMessage msg= new BaseMessage();
+
+        return msg;
+    }
+    @RequestMapping(value = "deleteDoc",method = RequestMethod.POST)
+    @ResponseBody
+    public BaseMessage deleteDoc(){
+        BaseMessage msg= new BaseMessage();
+
+        return msg;
+    }
+
+    @RequestMapping(value = "chBookDiscription",method = RequestMethod.POST)
+    @ResponseBody
+    public  BaseMessage chBookDiscription(@RequestBody  Map<String, Object> map){
+        BaseMessage msg = new BaseMessage();
+        String owner=map.get("user").toString();
+        Integer id= (Integer) map.get("id");
+        String change= map.get("change").toString();
+        String result=manageService.chBookDiscription( owner, id, change);
+        msg.setMsg(result);
+        return msg;
+
+    }
+
+    @RequestMapping(value = "addLabel",method = RequestMethod.POST)
+    @ResponseBody
+    public  BaseMessage addLabel(@RequestBody  Map<String, Object> map){
+        BaseMessage msg = new BaseMessage();
+        String owner=map.get("user").toString();
+        Integer id= (Integer) map.get("id");
+        String change= map.get("change").toString();
+        String result=manageService.chBookDiscription( owner, id, change);
+        msg.setMsg(result);
+        return msg;
+
+    }
+
 }
