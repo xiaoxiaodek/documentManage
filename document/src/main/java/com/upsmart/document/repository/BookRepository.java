@@ -33,13 +33,34 @@ public interface BookRepository extends PagingAndSortingRepository<Book, Integer
          */
         List<Book> findByType(String type);
         /**
+         * @param type
+         * @return
+         */
+        List<Book> findByLabel(String label);
+        /**
+         * @param seoType
+         * @return
+         */
+        @Modifying
+        @Query(value = "select * from Book where  ?2=?1",nativeQuery = true)
+        List<Book> findBySeoType(String seo,String seoType);
+        /**
          *
          * @param
          * @return
          */
         @Modifying
-        @Query(value = "select * from doc where owner=?1 and  type=?2",nativeQuery = true)
+        @Query(value = "select * from Book where owner=?1 and type=?2",nativeQuery = true)
         List<Book> findByOwner(String owner ,String seo);
+
+        /**
+         *
+         * @param
+         * @return
+         */
+        @Modifying
+        @Query(value = "select * from Book where owner=?1 and label=?2",nativeQuery = true)
+        List<Book> findByLabel(String owner ,String label);
         /**
          *
          * @param

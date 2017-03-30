@@ -16,6 +16,7 @@ import java.util.List;
 import java.util.Map;
 import com.upsmart.document.domain.Doc;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 /**
@@ -24,6 +25,7 @@ import org.springframework.web.multipart.MultipartFile;
  * @author upsmart
  * @since 17-3-22
  */
+@Transactional
 @Service
 public class ManageServiceImpl implements ManageService{
     @Autowired private DocRepository docRepository;
@@ -53,7 +55,7 @@ public class ManageServiceImpl implements ManageService{
         }
         return returnResult;
 
-        }
+    }
 
     public List<Map<String, Object>> bookFindByOwner(String Owner){
         Boolean verify =this.userRepository.findByUname(Owner).getVerify();
@@ -72,6 +74,7 @@ public class ManageServiceImpl implements ManageService{
             docMap.put("type",book.get(i).getType() );
             docMap.put("path", book.get(i).getPath());
             docMap.put("label", book.get(i).getLabel());
+            docMap.put("discription", book.get(i).getDiscription());
 //            docMap.put("owner", doc.get(i).getOwner());
 //            docMap.put("path", doc.get(i).getSendtime());
             returnResult.add(docMap);
@@ -105,7 +108,7 @@ public class ManageServiceImpl implements ManageService{
 
     }
 
-    public List<Map<String, Object>> bookFindByOwner(String Owner,String seo){
+    public List<Map<String, Object>> bookFindByOwner(String Owner,String seo,String seoType){
         List<Book> book;
         Boolean verify =this.userRepository.findByUname(Owner).getVerify();
         if(!verify){
@@ -176,6 +179,44 @@ public class ManageServiceImpl implements ManageService{
 
     public String upLoadBook(String path, String s, MultipartFile[] file){
         String result="";
+        Map<String, Object> map = new HashMap<>();
+        try {
+            map = JSONUtil.jsonToObject(s);
+        } catch (Exception e1) {
+            logger.error("获取上传文件数据失败");
+            result = "获取前台数据失败";
+            e1.printStackTrace();
+        }
+        if (null != file) {
+            for (int i = 0; i < file.length; i++) {
+                String fname = file[i].getOriginalFilename();
+                File targetFile = new File(path, fname);
+                if (!targetFile.exists()) {
+                    targetFile.mkdirs();
+                }
+                try {
+                    file[i].transferTo(targetFile);
+                } catch (IllegalStateException e) {
+                    e.printStackTrace();
+                    result="传输文件出错（不合法操作）";
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    result="传输文件出错（io端口）";
+                }
+                Book book=new Book();
+                book.setName(file[0].getOriginalFilename());
+                book.setOwner((String) map.get("user"));
+                book.setDiscription((String) map.get("info"));
+                book.setPath(path);
+                book.setType((String) map.get("type"));
+                book.setLabel("待会再写");
+                try {
+                    this.bookRepository.save(book);
+                }catch (Exception e){
+                    result="存储文件信息出错";
+                }
+            }
+        }
         return result;
     }
 
@@ -227,7 +268,46 @@ public class ManageServiceImpl implements ManageService{
         }
         return result;
     }
+    public List<Map<String, Object>> otherSearch(String owner,String value,String index){
+        Boolean verify =this.userRepository.findByUname(owner).getVerify();
+        List<Book> book;
+        if(index.equals("type")) {
+            if (!verify) {
+                book = this.bookRepository.findByOwner(owner,value);
+            } else {
+                book = this.bookRepository.findByType(value);
+            }
+        }else if(index.equals("label")){
+            if (!verify) {
+                book = this.bookRepository.findByOwner(owner,value);
+            } else {
+                book = this.bookRepository.findByLabel(value);
+            }
+        }
+        else{
+            if (!verify) {
+                book = this.bookRepository.findByOwner(owner);
+            } else {
+                book = this.bookRepository.findAll();
+            }
+        }
 
+        List<Map<String, Object>> returnResult = new ArrayList<>();
+        for (int i = 0; i < book.size(); i++) {
+            Map<String, Object> docMap = new HashMap<>();
+            docMap.put("id", book.get(i).getId());
+            docMap.put("name", book.get(i).getName());
+            docMap.put("type",book.get(i).getType() );
+            docMap.put("path", book.get(i).getPath());
+            docMap.put("label", book.get(i).getLabel());
+            docMap.put("discription", book.get(i).getDiscription());
+//            docMap.put("owner", doc.get(i).getOwner());
+//            docMap.put("path", doc.get(i).getSendtime());
+            returnResult.add(docMap);
+        }
+        return returnResult;
+
+    }
 
 }
 

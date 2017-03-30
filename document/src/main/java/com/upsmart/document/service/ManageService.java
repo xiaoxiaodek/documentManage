@@ -17,7 +17,7 @@ public interface ManageService {
     public List<Map<String, Object>> docFindByOwner(String owner);
     public List<Map<String, Object>> docFindByOwner(String owner,String seo);
     public List<Map<String, Object>> bookFindByOwner(String owner);
-    public List<Map<String, Object>> bookFindByOwner(String owner,String seo);
+    public List<Map<String, Object>> bookFindByOwner(String owner,String seo,String seoType);
 
     /**
      * @param path
@@ -38,4 +38,5 @@ public interface ManageService {
     public String deleteBook(String owner,List<Integer> id);
     public String chDocDiscription(String owner,Integer id,String change);
     public String chBookDiscription(String owner,Integer id,String change);
+    public List<Map<String, Object>> otherSearch(String owner,String value,String index);
 }

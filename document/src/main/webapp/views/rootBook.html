@@ -12,13 +12,14 @@
 </head>
 <body>
 <header>
-  <span>文档管理个人中心</span>
+  <span>书籍管理中心（管理员）</span>
   <a href="../index.html">退出</a>
   <a href="changePwd.html">修改密码</a>
+    <a href="rootManage.html">前往文档管理</a>
 </header>
 <div class="wrap">
   <div class="row">
-    <aside class="col-md-3 col-md-offset-1">
+    <!-- <aside class="col-md-3 col-md-offset-1">
       <div class="_nav">
         <ul class="nav nav-pills">
         <li class="active"><a id="upload" href="#">文档管理</a></li>
@@ -524,11 +525,16 @@
          </g>
         </svg>
       </div>
-   </aside>
-     <section class="col-md-7">
+   </aside> -->
+     <section class="col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
       <div class="manage">
         <div class="seo input-group">
-          <span class="input-group-addon">文件类型</span>
+          <select class="form-control"  name="seoType" id="seoType">
+            <option value="name">书籍名称</option>
+            <option value="type">书籍类型</option>
+            <option value="label">书籍标签</option>
+            <option value="owner">书籍所有者</option>
+          </select>
           <input type="text" class="form-control" value="" id="seo">
           <button class="btn btn-primary form-control" type="button" name="button" id="search">点击搜索</button>
         </div>

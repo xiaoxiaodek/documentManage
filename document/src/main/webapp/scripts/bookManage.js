@@ -24,7 +24,7 @@ $(function(){
           hidhtml= hidhtml +"<tr id=' "+returnresult[i].id+" '><td><input type='checkbox' class='msg' name=' "+returnresult[i].id+
           " '></td><td>"+returnresult[i].name+"</td><td>"+returnresult[i].label+
           "</td><td>"+returnresult[i].type+"</td><td>"+returnresult[i].discription+
-          "</td><td>"+returnresult[i].path+"</td><td><a download='' href='../file/doc/"+returnresult[i].name+"'>下载</a></td><td><a index='"+returnresult[i].id+"'>删除</a></td></tr>";
+          "</td><td>"+returnresult[i].path+"</td><td><a download='' href='../file/book/"+returnresult[i].name+"'>下载</a></td><td><a index='"+returnresult[i].id+"'>删除</a></td></tr>";
       }
       $("#hidden-table").html(hidhtml);
 
@@ -53,11 +53,11 @@ $(function(){
        }
       $("#btn_upload").click(function(){
         var formData=new FormData;
-        var s={"info":$("#discription").val(),"user":user}
+        var s={"info":$("#discription").val(),"user":user,"type":$("#type").val()}
         formData.append("file",$("#file")[0].files[0]);
         formData.append("s",JSON.stringify(s));
         $.ajax({
-                url: '/manage/upLoadDoc',
+                url: '/manage/upLoadBook',
                 type: 'POST',
                 cache: false,
                 data: formData,
@@ -95,7 +95,9 @@ $(function(){
         }
       $("#search").click(function(){
         var seo=$("#seo").val();
+        var seoType=$("#seoType").val();
         param.seo=seo;
+        param.seoType=seoType;
         searchData(param);
       })
       $("#btn_edit").click(function(){
@@ -104,7 +106,7 @@ $(function(){
         if(checked.length==1){
           $.ajax({
             type:"POST",
-            url:"/manage/chDiscription",
+            url:"/manage/chBookDiscription",
             data:JSON.stringify({'user':user,'id':parseInt(checked[0].name),'change':change.val()}),
             dataType:"json",
             contentType:"application/json",
@@ -132,7 +134,7 @@ $(function(){
         if(checked.length){
           $.ajax({
             type:"POST",
-            url:"/manage/delete",
+            url:"/manage/deleteBook",
             data:JSON.stringify({'user':user,'id':id}),
             dataType:"json",
             contentType:"application/json",
@@ -142,6 +144,7 @@ $(function(){
                 window.location.reload();
               }else {
                 alert("error");
+                window.location.reload();
               }
             }
           })
@@ -149,7 +152,53 @@ $(function(){
           alert("未选中文件")
         }
       })
+      $($(".side li")[0]).click(function(){
+        $(".side-type").toggleClass("hidden");
+      })
+      $($(".side li")[1]).click(function(){
+        $(".side-label").toggleClass("hidden");
+      })
+      $($(".side li")[2]).click(function(){
+        searchData(param);
+      })
 
+      $(".side-type").on('click','a',function(){
+        console.log($(this).attr('value'));
+        $.ajax({
+          type:"POST",
+          url:"/manage/otherSearch",
+          data:JSON.stringify({'user':user,'value':$(this).attr('value'),'index':"type"}),
+          dataType:"json",
+          contentType:"application/json",
+          success:function(data){
+            if(data.msg==""){
+              showtable(data.data);
+            }else {
+              alert("error");
+              window.location.reload();
+            }
+          }
+        })
+      })
+
+      $(".side-label").on('click','a',function(){
+        console.log($(this).attr('value'));
+        $.ajax({
+          type:"POST",
+          url:"/manage/otherSearch",
+          data:JSON.stringify({'user':user,'value':$(this).attr('value'),'index':"label"}),
+          dataType:"json",
+          contentType:"application/json",
+          success:function(data){
+            if(data.msg==""){
+              showtable(data.data);
+            }else {
+              alert("error");
+              window.location.reload();
+            }
+          }
+        })
+      })
 })
 //[{name: "算法", path: "/file", discription: "十分", type: "psf"}]
 //$('#file')[0].files[0]

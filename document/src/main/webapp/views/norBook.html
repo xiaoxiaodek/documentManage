@@ -529,13 +529,32 @@
      <section class="col-md-7">
       <div class="manage">
         <div class="seo input-group">
-          <!-- <select class="input-group-addon">
-            <option value="">书籍类型</option>
-            <option value="">书籍标签</option>
-          </select> -->
-          <span class="input-group-addon" data-toggle="dropdown">书籍类型</span>
+            <!-- <span type="button" class="btn btn-primary form-control dropdown-toggle" data-toggle="dropdown">原始
+                <span class="caret"></span>
+            </span>
+            <ul class="dropdown-menu" role="menu">
+                <li>
+                    <a href="#">功能</a>
+                </li>
+                <li>
+                    <a href="#">另一个功能</a>
+                </li>
+                <li>
+                    <a href="#">其他</a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <a href="#">分离的链接</a>
+                </li>
+            </ul> -->
+            <select class="form-control"  name="seoType" id="seoType">
+              <option value="name">书籍名称</option>
+              <option value="type">书籍类型</option>
+              <option value="label">书籍标签</option>
+            </select>
           <input type="text" class="form-control" value="" id="seo">
           <button class="btn btn-primary form-control" type="button" name="button" id="search">点击搜索</button>
+
         </div>
         <ul class="nav navbar-nav" id="btn_manage">
           <li><a  href="#" data-toggle="modal" data-target="#myModal">上传</a></li>
@@ -547,6 +566,35 @@
       </div>
 
       <div class="pagination-container">
+        <div class="side">
+          <ul class="nav navbar-nav pull-left">
+            <li><span class="btn btn-link">书籍类别</span></li>
+            <li><span class="btn btn-link">书籍标签</span></li>
+            <li><span class="btn btn-link">刷新</span></li>
+          </ul>
+        </div>
+        <div class="side-type hidden">
+          <ul class="nav navbar-nav pull-left">
+            <!-- <li><a index="7" value="*">所有类型|</a></li> -->
+            <li><a index="1" value="计算机技术">计算机技术|</a></li>
+            <li><a index="2" value="书法篆刻">书法篆刻|</a></li>
+            <li><a index="3" value="中国文学">中国文学|</a></li>
+            <li><a index="4" value="哲学类">哲学类|</a></li>
+            <li><a index="5" value="摄影影视">摄影影视|</a></li>
+            <li><a index="6" value="其他">其他</a></li>
+          </ul>
+        </div>
+        <div class="side-label hidden">
+          <ul class="nav navbar-nav pull-left">
+            <!-- <li><a index="7" value="*">所有类型|</a></li> -->
+            <li><a index="1" value="3~6岁">3~6岁|</a></li>
+            <li><a index="2" value="考试辅导">考试辅导|</a></li>
+            <li><a index="3" value="流行">流行|</a></li>
+            <li><a index="4" value="小众">小众|</a></li>
+            <li><a index="5" value="鸡汤">鸡汤|</a></li>
+            <li><a index="6" value="其他">其他</a></li>
+          </ul>
+        </div>
         <table class="table table-bordered msgtable">
           <thead>
             <tr>

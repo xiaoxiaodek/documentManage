@@ -15,6 +15,7 @@
   <span>文档管理中心（管理员）</span>
   <a href="../index.html">退出</a>
   <a href="changePwd.html">修改密码</a>
+  <a href="rootBook.html">前往书籍管理</a>
 </header>
 <div class="wrap">
   <div class="row">
@@ -526,7 +527,11 @@
      <section class="col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
       <div class="manage">
         <div class="seo input-group">
-          <span class="input-group-addon">文件类型</span>
+          <select class="form-control"  name="seoType" id="seoType">
+            <option value="name">文档名称</option>
+            <option value="type">文档类型</option>
+            <option value="owner">文档所有者</option>
+          </select>
           <input type="text" class="form-control" value="" id="seo">
           <button class="btn btn-primary form-control" type="button" name="button" id="search">点击搜索</button>
         </div>

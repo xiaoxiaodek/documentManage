@@ -17,7 +17,7 @@ import java.util.List;
  */
 @Repository public interface DocRepository extends PagingAndSortingRepository<Doc, Integer> {
     /**
-     * @param owner
+     * @param owner 撒旦法
      * @return
      */
     List<Doc> findByOwner(String owner);
