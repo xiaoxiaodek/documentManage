@@ -15,36 +15,39 @@ import java.util.List;
  * @author upsmart
  * @since 17-3-22
  */
-@Repository public interface DocRepository extends PagingAndSortingRepository<Doc, Integer> {
+@Repository
+public interface DocRepository extends PagingAndSortingRepository<Doc, Integer> {
     /**
      * @param owner 撒旦法
      * @return
      */
     List<Doc> findByOwner(String owner);
+
     /**
      * @param type
      * @return
      */
     List<Doc> findByType(String type);
+
     /**
      * @param id
      * @return
      */
     Doc findById(Integer id);
+
     /**
-     *
      * @param
      * @return
      */
     @Modifying
-    @Query(value = "select * from doc where owner=?1 and  type=?2",nativeQuery = true)
-    List<Doc> findByOwner(String owner ,String seo);
+    @Query(value = "select * from doc where owner=?1 and  type=?2 order by uptime desc", nativeQuery = true)
+    List<Doc> findByOwner(String owner, String seo);
+
     /**
-     *
      * @param
      * @return
      */
     @Modifying
-    @Query(value = "select * from doc",nativeQuery = true)
+    @Query(value = "select * from doc order by uptime desc", nativeQuery = true)
     List<Doc> findAll();
 }

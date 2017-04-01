@@ -10,13 +10,12 @@ import org.springframework.stereotype.Service;
 @Service
 public interface LoginService {
     /**
-     *
      * @param map
      * @return
      */
     String login(Map<String, Object> map);
+
     /**
-     *
      * @param map
      * @return
      */

@@ -6,8 +6,10 @@ $(function () {
         var name = $("#cname").val();
         //获取输入密码
         var pwd = $("#cpwd").val();
+        //密码加密传输
+        var sPwd=window.btoa(pwd);
         //开始发送数据
-        var params = {"uname": name, "upassword": pwd};
+        var params = {"uname": name, "upassword": sPwd};
         if (checkInput()) {
             $.ajax
             ({

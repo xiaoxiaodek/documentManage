@@ -1,5 +1,7 @@
 package com.upsmart.document.dto;
 
+import java.util.Date;
+
 /**
  * Copyright (C), 2017, 银联智惠信息服务（上海）有限公司
  *
@@ -13,21 +15,26 @@ public class DocDto {
     private String path;
     private String discription;
     private String owner;
-    public int getId() {
-        return id;
-    }
+    private Date upTime;
+
+    public int getId() {return id;}
+
     public void setId(int id) {
         this.id = id;
     }
+
     public String getName() {
         return name;
     }
+
     public void setName(String name) {
         this.name = name;
     }
+
     public String getType() {
         return type;
     }
+
     public void setType(String type) {
         this.type = type;
     }
@@ -55,4 +62,8 @@ public class DocDto {
     public void setOwner(String owner) {
         this.owner = owner;
     }
+
+    public Date getUpTime() {return upTime;}
+
+    public void setUpTime(Date upTime) {this.upTime = upTime;}
 }

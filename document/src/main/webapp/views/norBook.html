@@ -9,10 +9,30 @@
     <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../styles/manage.css">
     <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+    <style type="text/css">
+        div.content {width:300px;height: 200px;float: left;margin-top: 10px;position: relative;}
+        div.picture {position: relative;float: left;width: 134px;height: 180px;}
+        /*background: url("http://img62.ddimg.cn/digital/product/23/14/1960072314_ii_cover.jpg?version=f74b40ea-4705-43e1-96c7-2731814d3263") 3px 6px no-repeat;padding: 10px 10px 20px;}*/
+        div.menu {width: 134px;height: 180px;padding: 10px 10px 20px;float: left;}
+        div.picture img{width: 114px;height: 150px;box-shadow:7px 7px 5px #888888;}
+        div.menu dl dt{height: 50px;}
+        div.msgtable{height: 575px;margin-top: -600px;margin-left: 80px}
+        div.msgtable input{position:absolute;bottom:20px;left: 0px;}
+        .calendar-graph {
+              height: 126px;
+              padding: 5px 0 0;
+              text-align: center;
+          }
+        .height-full {
+              height: 100% !important;
+          }
+        svg:not(:root) {overflow: hidden}
+    </style>
+
 </head>
 <body>
 <header>
-  <span>书籍管理个人中心</span>
+  <strong>书籍管理个人中心</strong>
   <a href="../index.html">退出</a>
   <a href="changePwd.html">修改密码</a>
 </header>
@@ -29,52 +49,53 @@
         <div class="recently"></div>
       </div>
       <div class="contribution">
+
         <svg width="400px" height="104" class="js-calendar-graph-svg">
            <g transform="translate(16, 20)">
             <g transform="translate(0, 0)">
-              <rect class="day" width="10" height="10" x="13" y="0" fill="#ebedf0" data-count="0" data-date="2016-03-27"></rect>
+              <rect class="day" width="10" height="10" x="13" y="0" fill="#196127" data-count="0" data-date="2016-03-27"></rect>
               <rect class="day" width="10" height="10" x="13" y="12" fill="#ebedf0" data-count="0" data-date="2016-03-28"></rect>
               <rect class="day" width="10" height="10" x="13" y="24" fill="#ebedf0" data-count="0" data-date="2016-03-29"></rect>
-              <rect class="day" width="10" height="10" x="13" y="36" fill="#ebedf0" data-count="0" data-date="2016-03-30"></rect>
-              <rect class="day" width="10" height="10" x="13" y="48" fill="#ebedf0" data-count="0" data-date="2016-03-31"></rect>
+              <rect class="day" width="10" height="10" x="13" y="36" fill="#196127" data-count="0" data-date="2016-03-30"></rect>
+              <rect class="day" width="10" height="10" x="13" y="48" fill="#c6e48b" data-count="0" data-date="2016-03-31"></rect>
               <rect class="day" width="10" height="10" x="13" y="60" fill="#ebedf0" data-count="0" data-date="2016-04-01"></rect>
               <rect class="day" width="10" height="10" x="13" y="72" fill="#ebedf0" data-count="0" data-date="2016-04-02"></rect>
                   </g>
                   <g transform="translate(13, 0)">
-                  <rect class="day" width="10" height="10" x="12" y="0" fill="#ebedf0" data-count="0" data-date="2016-04-03"></rect>
+                  <rect class="day" width="10" height="10" x="12" y="0" fill="#196127" data-count="0" data-date="2016-04-03"></rect>
                   <rect class="day" width="10" height="10" x="12" y="12" fill="#ebedf0" data-count="0" data-date="2016-04-04"></rect>
                   <rect class="day" width="10" height="10" x="12" y="24" fill="#ebedf0" data-count="0" data-date="2016-04-05"></rect>
-                  <rect class="day" width="10" height="10" x="12" y="36" fill="#ebedf0" data-count="0" data-date="2016-04-06"></rect>
-                  <rect class="day" width="10" height="10" x="12" y="48" fill="#ebedf0" data-count="0" data-date="2016-04-07"></rect>
+                  <rect class="day" width="10" height="10" x="12" y="36" fill="#196127" data-count="0" data-date="2016-04-06"></rect>
+                  <rect class="day" width="10" height="10" x="12" y="48" fill="#c6e48b" data-count="0" data-date="2016-04-07"></rect>
                   <rect class="day" width="10" height="10" x="12" y="60" fill="#ebedf0" data-count="0" data-date="2016-04-08"></rect>
-                  <rect class="day" width="10" height="10" x="12" y="72" fill="#ebedf0" data-count="0" data-date="2016-04-09"></rect>
+                  <rect class="day" width="10" height="10" x="12" y="72" fill="#196127" data-count="0" data-date="2016-04-09"></rect>
                 </g>
                 <g transform="translate(26, 0)">
                   <rect class="day" width="10" height="10" x="11" y="0" fill="#ebedf0" data-count="0" data-date="2016-04-10"></rect>
                   <rect class="day" width="10" height="10" x="11" y="12" fill="#ebedf0" data-count="0" data-date="2016-04-11"></rect>
-                  <rect class="day" width="10" height="10" x="11" y="24" fill="#ebedf0" data-count="0" data-date="2016-04-12"></rect>
-                  <rect class="day" width="10" height="10" x="11" y="36" fill="#ebedf0" data-count="0" data-date="2016-04-13"></rect>
+                  <rect class="day" width="10" height="10" x="11" y="24" fill="#196127" data-count="0" data-date="2016-04-12"></rect>
+                  <rect class="day" width="10" height="10" x="11" y="36" fill="#c6e48b" data-count="0" data-date="2016-04-13"></rect>
                   <rect class="day" width="10" height="10" x="11" y="48" fill="#ebedf0" data-count="0" data-date="2016-04-14"></rect>
-                  <rect class="day" width="10" height="10" x="11" y="60" fill="#ebedf0" data-count="0" data-date="2016-04-15"></rect>
+                  <rect class="day" width="10" height="10" x="11" y="60" fill="#196127" data-count="0" data-date="2016-04-15"></rect>
                   <rect class="day" width="10" height="10" x="11" y="72" fill="#ebedf0" data-count="0" data-date="2016-04-16"></rect>
               </g>
               <g transform="translate(39, 0)">
                   <rect class="day" width="10" height="10" x="10" y="0" fill="#ebedf0" data-count="0" data-date="2016-04-17"></rect>
-                  <rect class="day" width="10" height="10" x="10" y="12" fill="#ebedf0" data-count="0" data-date="2016-04-18"></rect>
-                  <rect class="day" width="10" height="10" x="10" y="24" fill="#ebedf0" data-count="0" data-date="2016-04-19"></rect>
+                  <rect class="day" width="10" height="10" x="10" y="12" fill="#c6e48b" data-count="0" data-date="2016-04-18"></rect>
+                  <rect class="day" width="10" height="10" x="10" y="24" fill="#196127" data-count="0" data-date="2016-04-19"></rect>
                   <rect class="day" width="10" height="10" x="10" y="36" fill="#ebedf0" data-count="0" data-date="2016-04-20"></rect>
-                  <rect class="day" width="10" height="10" x="10" y="48" fill="#ebedf0" data-count="0" data-date="2016-04-21"></rect>
-                  <rect class="day" width="10" height="10" x="10" y="60" fill="#ebedf0" data-count="0" data-date="2016-04-22"></rect>
+                  <rect class="day" width="10" height="10" x="10" y="48" fill="#196127" data-count="0" data-date="2016-04-21"></rect>
+                  <rect class="day" width="10" height="10" x="10" y="60" fill="#c6e48b" data-count="0" data-date="2016-04-22"></rect>
                   <rect class="day" width="10" height="10" x="10" y="72" fill="#ebedf0" data-count="0" data-date="2016-04-23"></rect>
               </g>
               <g transform="translate(52, 0)">
-                  <rect class="day" width="10" height="10" x="9" y="0" fill="#ebedf0" data-count="0" data-date="2016-04-24"></rect>
+                  <rect class="day" width="10" height="10" x="9" y="0" fill="#c6e48b" data-count="0" data-date="2016-04-24"></rect>
                   <rect class="day" width="10" height="10" x="9" y="12" fill="#ebedf0" data-count="0" data-date="2016-04-25"></rect>
-                  <rect class="day" width="10" height="10" x="9" y="24" fill="#ebedf0" data-count="0" data-date="2016-04-26"></rect>
-                  <rect class="day" width="10" height="10" x="9" y="36" fill="#ebedf0" data-count="0" data-date="2016-04-27"></rect>
-                  <rect class="day" width="10" height="10" x="9" y="48" fill="#ebedf0" data-count="0" data-date="2016-04-28"></rect>
+                  <rect class="day" width="10" height="10" x="9" y="24" fill="#196127" data-count="0" data-date="2016-04-26"></rect>
+                  <rect class="day" width="10" height="10" x="9" y="36" fill="#c6e48b" data-count="0" data-date="2016-04-27"></rect>
+                  <rect class="day" width="10" height="10" x="9" y="48" fill="#196127" data-count="0" data-date="2016-04-28"></rect>
                   <rect class="day" width="10" height="10" x="9" y="60" fill="#ebedf0" data-count="0" data-date="2016-04-29"></rect>
-                  <rect class="day" width="10" height="10" x="9" y="72" fill="#ebedf0" data-count="0" data-date="2016-04-30"></rect>
+                  <rect class="day" width="10" height="10" x="9" y="72" fill="#196127" data-count="0" data-date="2016-04-30"></rect>
               </g>
               <g transform="translate(65, 0)">
                   <rect class="day" width="10" height="10" x="8" y="0" fill="#ebedf0" data-count="0" data-date="2016-05-01"></rect>
@@ -106,53 +127,53 @@
               <g transform="translate(104, 0)">
                   <rect class="day" width="10" height="10" x="5" y="0" fill="#ebedf0" data-count="0" data-date="2016-05-22"></rect>
                   <rect class="day" width="10" height="10" x="5" y="12" fill="#ebedf0" data-count="0" data-date="2016-05-23"></rect>
-                  <rect class="day" width="10" height="10" x="5" y="24" fill="#ebedf0" data-count="0" data-date="2016-05-24"></rect>
-                  <rect class="day" width="10" height="10" x="5" y="36" fill="#ebedf0" data-count="0" data-date="2016-05-25"></rect>
+                  <rect class="day" width="10" height="10" x="5" y="24" fill="#c6e48b" data-count="0" data-date="2016-05-24"></rect>
+                  <rect class="day" width="10" height="10" x="5" y="36" fill="#c6e48b" data-count="0" data-date="2016-05-25"></rect>
                   <rect class="day" width="10" height="10" x="5" y="48" fill="#ebedf0" data-count="0" data-date="2016-05-26"></rect>
                   <rect class="day" width="10" height="10" x="5" y="60" fill="#ebedf0" data-count="0" data-date="2016-05-27"></rect>
                   <rect class="day" width="10" height="10" x="5" y="72" fill="#ebedf0" data-count="0" data-date="2016-05-28"></rect>
               </g>
               <g transform="translate(117, 0)">
                   <rect class="day" width="10" height="10" x="4" y="0" fill="#ebedf0" data-count="0" data-date="2016-05-29"></rect>
-                  <rect class="day" width="10" height="10" x="4" y="12" fill="#ebedf0" data-count="0" data-date="2016-05-30"></rect>
+                  <rect class="day" width="10" height="10" x="4" y="12" fill="#c6e48b" data-count="0" data-date="2016-05-30"></rect>
                   <rect class="day" width="10" height="10" x="4" y="24" fill="#ebedf0" data-count="0" data-date="2016-05-31"></rect>
-                  <rect class="day" width="10" height="10" x="4" y="36" fill="#ebedf0" data-count="0" data-date="2016-06-01"></rect>
+                  <rect class="day" width="10" height="10" x="4" y="36" fill="#c6e48b" data-count="0" data-date="2016-06-01"></rect>
                   <rect class="day" width="10" height="10" x="4" y="48" fill="#ebedf0" data-count="0" data-date="2016-06-02"></rect>
                   <rect class="day" width="10" height="10" x="4" y="60" fill="#ebedf0" data-count="0" data-date="2016-06-03"></rect>
                   <rect class="day" width="10" height="10" x="4" y="72" fill="#ebedf0" data-count="0" data-date="2016-06-04"></rect>
               </g>
               <g transform="translate(130, 0)">
                   <rect class="day" width="10" height="10" x="3" y="0" fill="#ebedf0" data-count="0" data-date="2016-06-05"></rect>
-                  <rect class="day" width="10" height="10" x="3" y="12" fill="#ebedf0" data-count="0" data-date="2016-06-06"></rect>
+                  <rect class="day" width="10" height="10" x="3" y="12" fill="#c6e48b" data-count="0" data-date="2016-06-06"></rect>
                   <rect class="day" width="10" height="10" x="3" y="24" fill="#ebedf0" data-count="0" data-date="2016-06-07"></rect>
                   <rect class="day" width="10" height="10" x="3" y="36" fill="#ebedf0" data-count="0" data-date="2016-06-08"></rect>
                   <rect class="day" width="10" height="10" x="3" y="48" fill="#ebedf0" data-count="0" data-date="2016-06-09"></rect>
                   <rect class="day" width="10" height="10" x="3" y="60" fill="#ebedf0" data-count="0" data-date="2016-06-10"></rect>
-                  <rect class="day" width="10" height="10" x="3" y="72" fill="#ebedf0" data-count="0" data-date="2016-06-11"></rect>
+                  <rect class="day" width="10" height="10" x="3" y="72" fill="#c6e48b" data-count="0" data-date="2016-06-11"></rect>
               </g>
               <g transform="translate(143, 0)">
                   <rect class="day" width="10" height="10" x="2" y="0" fill="#ebedf0" data-count="0" data-date="2016-06-12"></rect>
                   <rect class="day" width="10" height="10" x="2" y="12" fill="#ebedf0" data-count="0" data-date="2016-06-13"></rect>
                   <rect class="day" width="10" height="10" x="2" y="24" fill="#ebedf0" data-count="0" data-date="2016-06-14"></rect>
-                  <rect class="day" width="10" height="10" x="2" y="36" fill="#ebedf0" data-count="0" data-date="2016-06-15"></rect>
+                  <rect class="day" width="10" height="10" x="2" y="36" fill="#c6e48b" data-count="0" data-date="2016-06-15"></rect>
                   <rect class="day" width="10" height="10" x="2" y="48" fill="#ebedf0" data-count="0" data-date="2016-06-16"></rect>
                   <rect class="day" width="10" height="10" x="2" y="60" fill="#ebedf0" data-count="0" data-date="2016-06-17"></rect>
                   <rect class="day" width="10" height="10" x="2" y="72" fill="#ebedf0" data-count="0" data-date="2016-06-18"></rect>
               </g>
               <g transform="translate(156, 0)">
                   <rect class="day" width="10" height="10" x="1" y="0" fill="#ebedf0" data-count="0" data-date="2016-06-19"></rect>
-                  <rect class="day" width="10" height="10" x="1" y="12" fill="#ebedf0" data-count="0" data-date="2016-06-20"></rect>
+                  <rect class="day" width="10" height="10" x="1" y="12" fill="#c6e48b" data-count="0" data-date="2016-06-20"></rect>
                   <rect class="day" width="10" height="10" x="1" y="24" fill="#ebedf0" data-count="0" data-date="2016-06-21"></rect>
-                  <rect class="day" width="10" height="10" x="1" y="36" fill="#ebedf0" data-count="0" data-date="2016-06-22"></rect>
+                  <rect class="day" width="10" height="10" x="1" y="36" fill="#c6e48b" data-count="0" data-date="2016-06-22"></rect>
                   <rect class="day" width="10" height="10" x="1" y="48" fill="#ebedf0" data-count="0" data-date="2016-06-23"></rect>
                   <rect class="day" width="10" height="10" x="1" y="60" fill="#ebedf0" data-count="0" data-date="2016-06-24"></rect>
-                  <rect class="day" width="10" height="10" x="1" y="72" fill="#ebedf0" data-count="0" data-date="2016-06-25"></rect>
+                  <rect class="day" width="10" height="10" x="1" y="72" fill="#c6e48b" data-count="0" data-date="2016-06-25"></rect>
               </g>
               <g transform="translate(169, 0)">
                   <rect class="day" width="10" height="10" x="0" y="0" fill="#ebedf0" data-count="0" data-date="2016-06-26"></rect>
-                  <rect class="day" width="10" height="10" x="0" y="12" fill="#ebedf0" data-count="0" data-date="2016-06-27"></rect>
+                  <rect class="day" width="10" height="10" x="0" y="12" fill="#c6e48b" data-count="0" data-date="2016-06-27"></rect>
                   <rect class="day" width="10" height="10" x="0" y="24" fill="#ebedf0" data-count="0" data-date="2016-06-28"></rect>
-                  <rect class="day" width="10" height="10" x="0" y="36" fill="#ebedf0" data-count="0" data-date="2016-06-29"></rect>
+                  <rect class="day" width="10" height="10" x="0" y="36" fill="#c6e48b" data-count="0" data-date="2016-06-29"></rect>
                   <rect class="day" width="10" height="10" x="0" y="48" fill="#ebedf0" data-count="0" data-date="2016-06-30"></rect>
                   <rect class="day" width="10" height="10" x="0" y="60" fill="#ebedf0" data-count="0" data-date="2016-07-01"></rect>
                   <rect class="day" width="10" height="10" x="0" y="72" fill="#ebedf0" data-count="0" data-date="2016-07-02"></rect>
@@ -398,43 +419,43 @@
                   <rect class="day" width="10" height="10" x="-27" y="36" fill="#ebedf0" data-count="0" data-date="2017-01-04"></rect>
                   <rect class="day" width="10" height="10" x="-27" y="48" fill="#ebedf0" data-count="0" data-date="2017-01-05"></rect>
                   <rect class="day" width="10" height="10" x="-27" y="60" fill="#ebedf0" data-count="0" data-date="2017-01-06"></rect>
-                  <rect class="day" width="10" height="10" x="-27" y="72" fill="#ebedf0" data-count="0" data-date="2017-01-07"></rect>
+                  <rect class="day" width="10" height="10" x="-27" y="72" fill="#7bc96f" data-count="0" data-date="2017-01-07"></rect>
               </g>
               <g transform="translate(533, 0)">
                   <rect class="day" width="10" height="10" x="-28" y="0" fill="#ebedf0" data-count="0" data-date="2017-01-08"></rect>
                   <rect class="day" width="10" height="10" x="-28" y="12" fill="#ebedf0" data-count="0" data-date="2017-01-09"></rect>
                   <rect class="day" width="10" height="10" x="-28" y="24" fill="#ebedf0" data-count="0" data-date="2017-01-10"></rect>
-                  <rect class="day" width="10" height="10" x="-28" y="36" fill="#ebedf0" data-count="0" data-date="2017-01-11"></rect>
+                  <rect class="day" width="10" height="10" x="-28" y="36" fill="#7bc96f" data-count="0" data-date="2017-01-11"></rect>
                   <rect class="day" width="10" height="10" x="-28" y="48" fill="#ebedf0" data-count="0" data-date="2017-01-12"></rect>
                   <rect class="day" width="10" height="10" x="-28" y="60" fill="#ebedf0" data-count="0" data-date="2017-01-13"></rect>
-                  <rect class="day" width="10" height="10" x="-28" y="72" fill="#ebedf0" data-count="0" data-date="2017-01-14"></rect>
+                  <rect class="day" width="10" height="10" x="-28" y="72" fill="#c6e48b" data-count="0" data-date="2017-01-14"></rect>
               </g>
               <g transform="translate(546, 0)">
-                  <rect class="day" width="10" height="10" x="-29" y="0" fill="#ebedf0" data-count="0" data-date="2017-01-15"></rect>
+                  <rect class="day" width="10" height="10" x="-29" y="0" fill="#7bc96f" data-count="0" data-date="2017-01-15"></rect>
                   <rect class="day" width="10" height="10" x="-29" y="12" fill="#ebedf0" data-count="0" data-date="2017-01-16"></rect>
                   <rect class="day" width="10" height="10" x="-29" y="24" fill="#ebedf0" data-count="0" data-date="2017-01-17"></rect>
-                  <rect class="day" width="10" height="10" x="-29" y="36" fill="#ebedf0" data-count="0" data-date="2017-01-18"></rect>
+                  <rect class="day" width="10" height="10" x="-29" y="36" fill="#c6e48b" data-count="0" data-date="2017-01-18"></rect>
                   <rect class="day" width="10" height="10" x="-29" y="48" fill="#ebedf0" data-count="0" data-date="2017-01-19"></rect>
                   <rect class="day" width="10" height="10" x="-29" y="60" fill="#ebedf0" data-count="0" data-date="2017-01-20"></rect>
-                  <rect class="day" width="10" height="10" x="-29" y="72" fill="#ebedf0" data-count="0" data-date="2017-01-21"></rect>
+                  <rect class="day" width="10" height="10" x="-29" y="72" fill="#c6e48b" data-count="0" data-date="2017-01-21"></rect>
               </g>
               <g transform="translate(559, 0)">
                   <rect class="day" width="10" height="10" x="-30" y="0" fill="#ebedf0" data-count="0" data-date="2017-01-22"></rect>
-                  <rect class="day" width="10" height="10" x="-30" y="12" fill="#ebedf0" data-count="0" data-date="2017-01-23"></rect>
+                  <rect class="day" width="10" height="10" x="-30" y="12" fill="#7bc96f" data-count="0" data-date="2017-01-23"></rect>
                   <rect class="day" width="10" height="10" x="-30" y="24" fill="#ebedf0" data-count="0" data-date="2017-01-24"></rect>
                   <rect class="day" width="10" height="10" x="-30" y="36" fill="#ebedf0" data-count="0" data-date="2017-01-25"></rect>
                   <rect class="day" width="10" height="10" x="-30" y="48" fill="#ebedf0" data-count="0" data-date="2017-01-26"></rect>
-                  <rect class="day" width="10" height="10" x="-30" y="60" fill="#ebedf0" data-count="0" data-date="2017-01-27"></rect>
+                  <rect class="day" width="10" height="10" x="-30" y="60" fill="#7bc96f" data-count="0" data-date="2017-01-27"></rect>
                   <rect class="day" width="10" height="10" x="-30" y="72" fill="#ebedf0" data-count="0" data-date="2017-01-28"></rect>
               </g>
               <g transform="translate(572, 0)">
                   <rect class="day" width="10" height="10" x="-31" y="0" fill="#ebedf0" data-count="0" data-date="2017-01-29"></rect>
                   <rect class="day" width="10" height="10" x="-31" y="12" fill="#ebedf0" data-count="0" data-date="2017-01-30"></rect>
-                  <rect class="day" width="10" height="10" x="-31" y="24" fill="#ebedf0" data-count="0" data-date="2017-01-31"></rect>
+                  <rect class="day" width="10" height="10" x="-31" y="24" fill="#c6e48b" data-count="0" data-date="2017-01-31"></rect>
                   <rect class="day" width="10" height="10" x="-31" y="36" fill="#ebedf0" data-count="0" data-date="2017-02-01"></rect>
                   <rect class="day" width="10" height="10" x="-31" y="48" fill="#ebedf0" data-count="0" data-date="2017-02-02"></rect>
                   <rect class="day" width="10" height="10" x="-31" y="60" fill="#ebedf0" data-count="0" data-date="2017-02-03"></rect>
-                  <rect class="day" width="10" height="10" x="-31" y="72" fill="#ebedf0" data-count="0" data-date="2017-02-04"></rect>
+                  <rect class="day" width="10" height="10" x="-31" y="72" fill="#c6e48b" data-count="0" data-date="2017-02-04"></rect>
               </g>
               <g transform="translate(585, 0)">
                   <rect class="day" width="10" height="10" x="-32" y="0" fill="#ebedf0" data-count="0" data-date="2017-02-05"></rect>
@@ -456,11 +477,11 @@
               </g>
               <g transform="translate(611, 0)">
                   <rect class="day" width="10" height="10" x="-34" y="0" fill="#ebedf0" data-count="0" data-date="2017-02-19"></rect>
-                  <rect class="day" width="10" height="10" x="-34" y="12" fill="#ebedf0" data-count="0" data-date="2017-02-20"></rect>
+                  <rect class="day" width="10" height="10" x="-34" y="12" fill="#7bc96f" data-count="0" data-date="2017-02-20"></rect>
                   <rect class="day" width="10" height="10" x="-34" y="24" fill="#ebedf0" data-count="0" data-date="2017-02-21"></rect>
-                  <rect class="day" width="10" height="10" x="-34" y="36" fill="#ebedf0" data-count="0" data-date="2017-02-22"></rect>
+                  <rect class="day" width="10" height="10" x="-34" y="36" fill="#7bc96f" data-count="0" data-date="2017-02-22"></rect>
                   <rect class="day" width="10" height="10" x="-34" y="48" fill="#ebedf0" data-count="0" data-date="2017-02-23"></rect>
-                  <rect class="day" width="10" height="10" x="-34" y="60" fill="#ebedf0" data-count="0" data-date="2017-02-24"></rect>
+                  <rect class="day" width="10" height="10" x="-34" y="60" fill="#7bc96f" data-count="0" data-date="2017-02-24"></rect>
                   <rect class="day" width="10" height="10" x="-34" y="72" fill="#ebedf0" data-count="0" data-date="2017-02-25"></rect>
               </g>
               <g transform="translate(624, 0)">
@@ -524,29 +545,22 @@
             <text text-anchor="start" class="wday" dx="-14" dy="81" style="display: none;">Sat</text>
          </g>
         </svg>
+        <div class="contrib-legend text-gray" title="A summary of pull requests, issues opened, and commits to the default and gh-pages branches.">
+            Less
+            <ul class="legend">
+              <li style="background-color: #eee"></li>
+                <li style="background-color: #c6e48b"></li>
+                <li style="background-color: #7bc96f"></li>
+                <li style="background-color: #239a3b"></li>
+                <li style="background-color: #196127"></li>
+            </ul>
+            More
+          </div>
       </div>
    </aside>
      <section class="col-md-7">
       <div class="manage">
         <div class="seo input-group">
-            <!-- <span type="button" class="btn btn-primary form-control dropdown-toggle" data-toggle="dropdown">原始
-                <span class="caret"></span>
-            </span>
-            <ul class="dropdown-menu" role="menu">
-                <li>
-                    <a href="#">功能</a>
-                </li>
-                <li>
-                    <a href="#">另一个功能</a>
-                </li>
-                <li>
-                    <a href="#">其他</a>
-                </li>
-                <li class="divider"></li>
-                <li>
-                    <a href="#">分离的链接</a>
-                </li>
-            </ul> -->
             <select class="form-control"  name="seoType" id="seoType">
               <option value="name">书籍名称</option>
               <option value="type">书籍类型</option>
@@ -566,22 +580,15 @@
       </div>
 
       <div class="pagination-container">
-        <div class="side">
-          <ul class="nav navbar-nav pull-left">
-            <li><span class="btn btn-link">书籍类别</span></li>
-            <li><span class="btn btn-link">书籍标签</span></li>
-            <li><span class="btn btn-link">刷新</span></li>
-          </ul>
-        </div>
         <div class="side-type hidden">
           <ul class="nav navbar-nav pull-left">
             <!-- <li><a index="7" value="*">所有类型|</a></li> -->
-            <li><a index="1" value="计算机技术">计算机技术|</a></li>
-            <li><a index="2" value="书法篆刻">书法篆刻|</a></li>
-            <li><a index="3" value="中国文学">中国文学|</a></li>
-            <li><a index="4" value="哲学类">哲学类|</a></li>
-            <li><a index="5" value="摄影影视">摄影影视|</a></li>
-            <li><a index="6" value="其他">其他</a></li>
+            <li><a index="1" value="计算机技术">计算机技术  |</a></li>
+            <li><a index="2" value="书法篆刻">书法篆刻  |</a></li>
+            <li><a index="3" value="中国文学">中国文学  |</a></li>
+            <li><a index="4" value="哲学类">哲学类  |</a></li>
+            <li><a index="5" value="摄影影视">摄影影视  |</a></li>
+            <!-- <li><a index="6" value="其他">其他</a></li> -->
           </ul>
         </div>
         <div class="side-label hidden">
@@ -592,10 +599,19 @@
             <li><a index="3" value="流行">流行|</a></li>
             <li><a index="4" value="小众">小众|</a></li>
             <li><a index="5" value="鸡汤">鸡汤|</a></li>
-            <li><a index="6" value="其他">其他</a></li>
+            <li><a index="5" value="待会再写">待会再写|</a></li>
+            <!-- <li><a index="6" value="其他">其他</a></li> -->
           </ul>
         </div>
-        <table class="table table-bordered msgtable">
+        <div class="side">
+          <ul class="pull-left">
+            <li><span class="btn ">书籍类别</span></li>
+            <li><span class="btn ">热门标签</span></li>
+            <li><span class="btn ">所有书籍</span></li>
+          </ul>
+        </div>
+
+        <!-- <table class="table table-bordered msgtable">
           <thead>
             <tr>
               <td></td>
@@ -611,7 +627,11 @@
 
           </tbody>
 
-        </table>
+        </table> -->
+
+      </div>
+      <div class="msgtable clearfixs">
+
       </div>
       <div class="hidden" id="hidden-table"></div>
 
@@ -643,7 +663,10 @@
                 </select>
                 </div>
                 <br>
-                <textarea id="discription" rows="4" cols="50" placeholder="请输入书籍描述" class="textarea"></textarea>
+                <input type="text" name="" class="form-control" placeholder="请输入书籍标签,多个标签用英文逗号分开">
+                <small style="color:red;">Tips: 鬼畜,抖腿,洛天依</small>
+                <br>
+                <textarea id="discription" rows="4" cols="50" placeholder="   请输入书籍描述" class="textarea"></textarea>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

@@ -27,14 +27,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 @RequestMapping(value = "login")
 public class LoginController {
-    
+
     private static Logger logger = LoggerFactory.getLogger(LoginController.class);
-    
+
     @Autowired
     private LoginService loginService;
 
     /**
-     *
      * @param map
      * @return
      */
@@ -43,15 +42,14 @@ public class LoginController {
     public BaseMessage login(@RequestBody Map<String, Object> map) {
         BaseMessage msg = new BaseMessage();
         try {
-            String result=this.loginService.login(map);
+            String result = this.loginService.login(map);
             if (result.equals("1")) {
                 ResponseUtil.buildResMsg(msg, StatusCode.SUCCESS);
                 msg.setData(1);
-            } else if(result.equals("0")){
+            } else if (result.equals("0")) {
                 ResponseUtil.buildResMsg(msg, StatusCode.SUCCESS);
                 msg.setData(0);
-            }
-            else{
+            } else {
                 logger.error("登陆异常");
                 ResponseUtil.buildResMsg(msg, StatusCode.ACCOUNT_PWD_INVALID_NOT_EXISTS);
             }
@@ -65,17 +63,16 @@ public class LoginController {
     //&&result.equals("0"))
 
     /**
-     *
      * @param map
      * @return
      */
     @RequestMapping(value = "chPwd", method = RequestMethod.POST)
     @ResponseBody
-    public BaseMessage function(@RequestBody Map<String, Object> map){
+    public BaseMessage function(@RequestBody Map<String, Object> map) {
         BaseMessage msg = new BaseMessage();
         try {
-            int result=this.loginService.chPwd(map);
-            if(!"".equals(result)) {
+            int result = this.loginService.chPwd(map);
+            if (!"".equals(result)) {
                 if (result == 1) {
                     ResponseUtil.buildResMsg(msg, StatusCode.SUCCESS);
                 } else {

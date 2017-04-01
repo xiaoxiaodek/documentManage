@@ -21,5 +21,5 @@ public interface ContractService {
 
     // 新增合同
     public String addContract(String path, String s, MultipartFile[] file);
-    
+
 }

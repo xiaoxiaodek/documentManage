@@ -26,11 +26,10 @@ public class User {
     private String upwd;
 
     //权限
-    @Column(name = "verify",nullable = false)
+    @Column(name = "verify", nullable = false)
     private Boolean verify;
 
     /**
-     *
      * @return
      */
     public int getUid() {
@@ -38,7 +37,6 @@ public class User {
     }
 
     /**
-     *
      * @param uid
      */
     public void setUid(int uid) {
@@ -46,7 +44,6 @@ public class User {
     }
 
     /**
-     *
      * @return
      */
     public String getUname() {
@@ -54,7 +51,6 @@ public class User {
     }
 
     /**
-     *
      * @param uname
      */
     public void setUname(String uname) {
@@ -62,7 +58,6 @@ public class User {
     }
 
     /**
-     *
      * @return
      */
     public String getUpwd() {
@@ -70,7 +65,6 @@ public class User {
     }
 
     /**
-     *
      * @param upwd
      */
     public void setUpwd(String upwd) {
@@ -78,14 +72,13 @@ public class User {
     }
 
     /**
-     *
      * @return
      */
     public Boolean getVerify() {
         return verify;
     }
+
     /**
-     *
      * @param verify
      */
     public void setVerify(Boolean verify) {

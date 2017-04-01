@@ -1,6 +1,8 @@
 package com.upsmart.document.converter;
+
 import com.upsmart.document.domain.Book;
 import com.upsmart.document.dto.BookDto;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,7 +11,6 @@ import java.util.List;
  */
 public class BookConverter {
     /**
-     *
      * @param domains sd
      * @return
      */
@@ -25,7 +26,6 @@ public class BookConverter {
     }
 
     /**
-     *
      * @param domain
      * @return
      */

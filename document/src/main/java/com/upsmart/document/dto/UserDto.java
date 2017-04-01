@@ -16,7 +16,6 @@ public class UserDto {
     private Boolean verify;
 
     /**
-     *
      * @return
      */
     public int getUid() {
@@ -24,7 +23,6 @@ public class UserDto {
     }
 
     /**
-     *
      * @param uid
      */
     public void setUid(int uid) {
@@ -32,7 +30,6 @@ public class UserDto {
     }
 
     /**
-     *
      * @return
      */
     public String getUname() {
@@ -40,7 +37,6 @@ public class UserDto {
     }
 
     /**
-     *
      * @param uname
      */
     public void setUname(String uname) {
@@ -54,15 +50,15 @@ public class UserDto {
     public void setUpwd(String upwd) {
         this.upwd = upwd;
     }
+
     /**
-     *
      * @return
      */
     public Boolean getVerify() {
         return verify;
     }
+
     /**
-     *
      * @param verify
      */
     public void setVerify(Boolean verify) {

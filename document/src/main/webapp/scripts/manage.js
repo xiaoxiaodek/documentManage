@@ -24,7 +24,7 @@ $(function(){
           hidhtml= hidhtml +"<tr id=' "+returnresult[i].id+" '><td><input type='checkbox' class='msg' name=' "+returnresult[i].id+
           " '></td><td>"+returnresult[i].name+
           "</td><td>"+returnresult[i].type+"</td><td>"+returnresult[i].discription+
-          "</td><td>"+returnresult[i].path+"</td><td><a download='' href='../file/doc/"+returnresult[i].name+"'>下载</a></td><td><a index='"+returnresult[i].id+"'>删除</a></td></tr>";
+          "</td><td>"+returnresult[i].upTime+"</td><td><a download='' href='../file/doc/"+returnresult[i].name+"'>下载</a></td><td><a index='"+returnresult[i].id+"'>删除</a></td></tr>";
       }
       $("#hidden-table").html(hidhtml);
 
@@ -52,8 +52,9 @@ $(function(){
          }
        }
       $("#btn_upload").click(function(){
+        var date=new Date();
         var formData=new FormData;
-        var s={"info":$("#discription").val(),"user":user}
+        var s={"info":$("#discription").val(),"user":user,"date":date.toLocaleDateString().replace(/\//g,"-")}
         formData.append("file",$("#file")[0].files[0]);
         formData.append("s",JSON.stringify(s));
         $.ajax({

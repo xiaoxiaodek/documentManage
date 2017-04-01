@@ -7,7 +7,7 @@ $(function(){
         url:'../login/chPwd',
         dataType:'json',
         contentType:"application/json",
-        data:JSON.stringify({user:user,old:$("#old").val(),_new:$("#new").val()}),
+        data:JSON.stringify({user:user,old:window.btoa($("#old").val()),_new:window.btoa($("#new").val())}),
         success:function (data){
           if(data.code=="00000"){
             alert("修改密码成功");

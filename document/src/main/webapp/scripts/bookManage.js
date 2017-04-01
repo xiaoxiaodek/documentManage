@@ -15,24 +15,31 @@ $(function(){
     // });
     searchData(param);
     function showtable(returnresult){
+      debugger
     if(returnresult.length <= 0) {
-        var nodata = "<tr><td colspan = '7'>没有数据</td></tr>";
-        $("#msgtable").html(nodata);
+      $(".msgtable").empty();
+        var nodata = "<div style='color:red;margin:0 auto;'>没有数据</div>";
+        $(".msgtable").html(nodata);
     } else {
       var hidhtml="";
+      // for(var i=0; i<returnresult.length; i++){
+      //     hidhtml= hidhtml +"<tr id=' "+returnresult[i].id+" '><td><input type='checkbox' class='msg' name=' "+returnresult[i].id+
+      //     " '></td><td>"+returnresult[i].name+"</td><td>"+returnresult[i].label+
+      //     "</td><td>"+returnresult[i].type+"</td><td>"+returnresult[i].discription+
+      //     "</td><td>"+returnresult[i].path+"</td><td><a download='' href='../file/book/"+returnresult[i].name+"'>下载</a></td><td><a index='"+returnresult[i].id+"'>删除</a></td></tr>";
+      // }
+
       for(var i=0; i<returnresult.length; i++){
-          hidhtml= hidhtml +"<tr id=' "+returnresult[i].id+" '><td><input type='checkbox' class='msg' name=' "+returnresult[i].id+
-          " '></td><td>"+returnresult[i].name+"</td><td>"+returnresult[i].label+
-          "</td><td>"+returnresult[i].type+"</td><td>"+returnresult[i].discription+
-          "</td><td>"+returnresult[i].path+"</td><td><a download='' href='../file/book/"+returnresult[i].name+"'>下载</a></td><td><a index='"+returnresult[i].id+"'>删除</a></td></tr>";
-      }
+        debugger;
+          hidhtml= hidhtml +"<div class='content'><div class='picture'><img src='http://img62.ddimg.cn/digital/product/23/14/1960072314_ii_cover.jpg?version=f74b40ea-4705-43e1-96c7-2731814d3263' alt=''></div><div class='menu'><dl><dt><a download='' href='../file/book/"+returnresult[i].name+"'><strong>"
+          +returnresult[i].name+"</strong></a></dt><dd><small>"+returnresult[i].label+"</small></dd><dd><small>"+returnresult[i].discription+"</small></dd></dl></div><input type='checkbox' class='msg' name='"+returnresult[i].id+"'/></div>";}
       $("#hidden-table").html(hidhtml);
 
     $("#Pagination").pagination(returnresult.length, {
         num_edge_entries: 1, //边缘页数
         num_display_entries: 4, //主体页数
         callback: pageselectCallback,
-        items_per_page: 5, //每页显示5项
+        items_per_page: 6, //每页显示6项
         prev_text: "前一页",
         next_text: "后一页"
     });
@@ -40,15 +47,25 @@ $(function(){
     }
 }
 
+    // function pageselectCallback(page_index,jq){
+    //   //  template method of yourself
+    //   debugger;
+    //      var html = "";
+    //      $("#msgtable").empty();
+    //      for(var i=page_index*5;i<(page_index+1)*5; i++){
+    //
+    //         var new_content = $("#hidden-table tr:eq("+i+")").clone();
+    //     		$("#msgtable").append(new_content); //装载对应分页的内容
+    //      }
+    //    }
     function pageselectCallback(page_index,jq){
       //  template method of yourself
       debugger;
          var html = "";
-         $("#msgtable").empty();
-         for(var i=page_index*5;i<(page_index+1)*5; i++){
-
-            var new_content = $("#hidden-table tr:eq("+i+")").clone();
-        		$("#msgtable").append(new_content); //装载对应分页的内容
+         $(".msgtable").empty();
+         for(var i=page_index*6;i<(page_index+1)*6; i++){
+            var new_content = $("#hidden-table .content:eq("+i+")").clone();
+        		$(".msgtable").append(new_content); //装载对应分页的内容
          }
        }
       $("#btn_upload").click(function(){
@@ -163,7 +180,7 @@ $(function(){
       })
 
       $(".side-type").on('click','a',function(){
-        console.log($(this).attr('value'));
+        // console.log($(this).attr('value'));
         $.ajax({
           type:"POST",
           url:"/manage/otherSearch",
@@ -191,6 +208,7 @@ $(function(){
           contentType:"application/json",
           success:function(data){
             if(data.msg==""){
+              debugger
               showtable(data.data);
             }else {
               alert("error");

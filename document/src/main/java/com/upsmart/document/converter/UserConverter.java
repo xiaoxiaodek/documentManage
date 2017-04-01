@@ -17,7 +17,6 @@ import java.util.List;
 public class UserConverter {
 
     /**
-     *
      * @param domains
      * @return
      */
@@ -33,7 +32,6 @@ public class UserConverter {
     }
 
     /**
-     *
      * @param domain
      * @return
      */
